@@ -5,8 +5,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'LandingPage',
-      component: () => import('../views/LandingPage.vue'),
+      name: 'CartPage',
+      component: () => import('../views/CartPage.vue'),
     },
   ],
 })
