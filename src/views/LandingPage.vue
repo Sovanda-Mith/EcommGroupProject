@@ -1,5 +1,9 @@
 <template>
-  <div>FREE DELIVERY OVER 100$ USD & EASY RETURNS</div>
+  <PromotionBar />
+  <NavBar />
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import NavBar from '@/components/NavBar.vue'
+import PromotionBar from '@/components/PromotionBar.vue'
+</script>
