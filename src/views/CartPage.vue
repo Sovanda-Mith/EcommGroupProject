@@ -4,12 +4,16 @@ import productIncart from '../components/checkoutComponents/productIncart.vue';
 import backBtnCart from '../components/checkoutComponents/backBtnCart.vue';
 import forwardBtnCart from '../components/checkoutComponents/forwardBtnCart.vue';
 import headerCart from '../components/checkoutComponents/headerCart.vue';
+import NavBar from '../components/LandingPageComponents/NavBar.vue';
+import PromotionBar from '../components/LandingPageComponents/PromotionBar.vue';
 
 </script>
 
 <template>
-  <div class="w-100% h-[1024px] bg-[#A1A1A1] flex justify-center items-center">
-    <div class="relative cartContainer w-[1292.2px] h-[800px] rounded-[50px] bg-white">
+  <PromotionBar/>
+  <NavBar/>
+  <div class="w-100% h-[1024px] bg-[#A1A1A1] flex flex-col justify-center items-center">
+    <div class="relative cartContainer w-[1292.2px] h-[820px] rounded-[50px] bg-white">
         <headerCart title="Your Shopping Cart"></headerCart>
         <div class="w-100% flex gap-[204px] justify-center mt-[25px] pb-[20px]">
             <div class="cartTitle flex gap-1">Product Name <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="black" viewBox="0 0 24 24">
@@ -29,30 +33,23 @@ import headerCart from '../components/checkoutComponents/headerCart.vue';
 
         <!-- itemList -->
         <div class="w-100% max-h-[421px] flex flex-col items-center justify-start overflow-y-scroll scroll-p-2">
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="Hello1" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="Hello2" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="Hello3" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="headphones" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="headphones" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="headphones" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="headphones" discount="20%" finalPrice="$ 99"></productIncart>
-            <productIncart img="../src/assets/cartImg/headphones.webp" productName="headphones" discount="20%" finalPrice="$ 99"></productIncart>
+            <productIncart v-for="product in products" :key="product.productName" :img="product.img" :productName="product.productName" :discount="product.discount" :finalPrice="product.finalPrice"></productIncart>
         </div>
 
         <!-- backBtn -->
         <backBtnCart class="absolute bottom-[30px] left-[30px]" btnText="Back To Shopping" gap="8px"></backBtnCart>
-        
+
         <!-- total&forward -->
-        <div class="absolute right-[78px] bottom-[15px] mt-[23px] w-[334px] h-[181px] flex flex-col items-center">
+        <div class="absolute right-[78px] bottom-[15px] mt-[23px] w-[400px] h-[200px] flex flex-col items-center">
             <div class="flex justify-center items-center gap-[100px]">
-                <div class="flex flex-col gap-[17px] w-[160px]">
-                    <div class="totalText text-[16px]">Subtotal</div>
-                    <div class="totalText text-[16px]">Shipping & Handling</div>
+                <div class="flex flex-col gap-[17px] w-[220px]">
+                    <div class="totalText ">Subtotal</div>
+                    <div class="totalText ">Shipping & Handling</div>
                     <div class="totalTextBold font-bold text-[20px] ">Total</div>
                 </div>
                 <div class="flex flex-col gap-[17px]">
-                    <div class="totalText text-[20px]">$97.00</div>
-                    <div class="totalText text-[20px]">$19.99</div>
+                    <div class="totalText">$97.00</div>
+                    <div class="totalText ">$19.99</div>
                     <div class="totalTextBold text-[24px] font-bold">$120.00</div>
                 </div>
             </div>
@@ -63,9 +60,9 @@ import headerCart from '../components/checkoutComponents/headerCart.vue';
         </div>
     </div>
   </div>
-  
-  
-  
+
+
+
 </template>
 <style scoped>
 /* font import */
@@ -73,20 +70,29 @@ import headerCart from '../components/checkoutComponents/headerCart.vue';
 /* Import the font using @import */
 /* Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Kdam Thmor Pro */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&display=swap');
 
+@font-face {
+  font-family: 'SF-Pro';
+  src: url('../assets/fonts/SF-Pro.ttf') format('SF-Pro');
+  font-weight: normal;
+  font-style: normal;
+}
 .totalText{
-    font-family: 'Inter', sans-serif;
+    font-family: 'SF-Pro', sans-serif;
     font-weight: 400;
+    font-size: 24px;
 
 }
 .totalTextBold{
-    font-family: 'Inter', sans-serif;
+    font-family: 'SF-Pro', sans-serif;
     font-weight: 800;
 }
 .cartTitle{
-    font-family: 'Inter', sans-serif;
+    font-family: 'SF-Pro', sans-serif;
     font-weight: 500;
-    font-size: 16px;
+    font-size: 24px;
 }
 
 </style>
@@ -94,10 +100,26 @@ import headerCart from '../components/checkoutComponents/headerCart.vue';
 <script lang="ts">
 export default {
   name: 'App',
-  components: { 
-    
+  components: {
+
     headerCart
 
+  },
+  data() {
+    return {
+      products:[
+      {img: "../src/assets/cartImg/headphones.webp", productName: "Bluetooth speakers", discount: "15%", finalPrice: "$ 59"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "portable amplifier", discount: "20%", finalPrice: "$ 89"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "wired earbuds", discount: "12%", finalPrice: "$ 25"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "audio mixer", discount: "18%", finalPrice: "$ 199"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "USB microphone", discount: "25%", finalPrice: "$ 74"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "soundbar", discount: "10%", finalPrice: "$ 149"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "karaoke machine", discount: "22%", finalPrice: "$ 129"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "DJ controller", discount: "30%", finalPrice: "$ 349"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "smart speaker", discount: "15%", finalPrice: "$ 99"},
+      {img: "../src/assets/cartImg/headphones.webp", productName: "home theater system", discount: "35%", finalPrice: "$ 499"},
+      ],
+    }
   }
 }
 </script>

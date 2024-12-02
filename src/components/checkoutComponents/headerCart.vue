@@ -13,11 +13,16 @@ export default{
 }
 </script>
 <style>
-/* Kdam Thmor Pro */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&display=swap');
+@font-face {
+  font-family: 'SF-Pro';
+  src: url('../../assets/fonts/SF-Pro.ttf') format('SF-Pro');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .title{
-    font-family: 'Kdam Thmor Pro', sans-serif;
-    font-weight: 400;
+    font-family: 'SF-Pro', sans-serif;
+    font-weight: 800;
 }
 
 </style>

@@ -19,8 +19,8 @@
                 </svg>
             </button>
         </div>
-        <div class="interFont absolute left-[710px] w-[72.12px] h-[55px] bg-[#CBD7D1] flex justify-center items-center text-black rounded-[70px] text-[16px]">{{ discount }}</div>
-        <div class="interFont absolute left-[1040px] text-black text-[20px]">{{ finalPrice }}</div>
+        <div class="interFont absolute left-[710px] w-[100px] h-[55px] bg-[#CBD7D1] flex justify-center items-center text-black rounded-[70px] text-[24px]">{{ discount }}</div>
+        <div class="interFont absolute left-[1040px] text-black text-[24px]">{{ finalPrice }}</div>
     </div>
 </template>
 <script lang="ts">
@@ -37,11 +37,15 @@ export default{
 
 </script>
 <style scoped>
-/* Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 /* Rowdies */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&family=Rowdies:wght@300;400;700&display=swap');
-
+/* SF-Pro */
+@font-face {
+  font-family: 'SF-Pro';
+  src: url('../../assets/fonts/SF-Pro.ttf') format('SF-Pro');
+  font-weight: normal;
+  font-style: normal;
+}
 .img{
     width: 100px;
     height: 100px;
@@ -49,7 +53,7 @@ export default{
     border-radius: 15px;
 }
 .itemContainer{
-    
+
     width: 1164px;
     height: 125.25px;
     display: flex;
@@ -62,7 +66,7 @@ export default{
 
 }
 .interFont{
-    font-family: 'Inter', sans-serif;
+    font-family: 'SF-Pro', sans-serif;
 }
 .quantityTxt{
     font-family: 'Rowdies', sans-serif;
