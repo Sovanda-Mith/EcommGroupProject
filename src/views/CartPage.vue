@@ -6,7 +6,8 @@ import forwardBtnCart from '../components/checkoutComponents/forwardBtnCart.vue'
 import headerCart from '../components/checkoutComponents/headerCart.vue';
 import NavBar from '../components/LandingPageComponents/NavBar.vue';
 import PromotionBar from '../components/LandingPageComponents/PromotionBar.vue';
-
+import '@/assets/main.css';
+import TotalComp from '@/components/checkoutComponents/totalComp.vue';
 </script>
 
 <template>
@@ -40,21 +41,10 @@ import PromotionBar from '../components/LandingPageComponents/PromotionBar.vue';
         <backBtnCart class="absolute bottom-[30px] left-[30px]" btnText="Back To Shopping" gap="8px"></backBtnCart>
 
         <!-- total&forward -->
-        <div class="absolute right-[78px] bottom-[15px] mt-[23px] w-[400px] h-[200px] flex flex-col items-center">
-            <div class="flex justify-center items-center gap-[100px]">
-                <div class="flex flex-col gap-[17px] w-[220px]">
-                    <div class="totalText ">Subtotal</div>
-                    <div class="totalText ">Shipping & Handling</div>
-                    <div class="totalTextBold font-bold text-[20px] ">Total</div>
-                </div>
-                <div class="flex flex-col gap-[17px]">
-                    <div class="totalText">$97.00</div>
-                    <div class="totalText ">$19.99</div>
-                    <div class="totalTextBold text-[24px] font-bold">$120.00</div>
-                </div>
-            </div>
-            <div>
-                <forwardBtnCart  btnText="Secure Check Out" width="210px" height="40px" gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
+        <div class="absolute right-[78px] bottom-[15px] mt-[23px] w-[440px] h-[210px] flex flex-col items-center">
+            <TotalComp subTotal="$ 1,999" shipping="$ 99" total="$ 2,099"/>
+            <div class="flex flex-col items-center">
+                <forwardBtnCart to="/checkout" btnText="Secure Check Out" width="280px" height="50px" gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
                 <p class="text-[12px] mt-1">By clicking "Purchase", you accept the terms.</p>
             </div>
         </div>
@@ -73,22 +63,7 @@ import PromotionBar from '../components/LandingPageComponents/PromotionBar.vue';
 /* Kdam Thmor Pro */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&display=swap');
 
-@font-face {
-  font-family: 'SF-Pro';
-  src: url('../assets/fonts/SF-Pro.ttf') format('SF-Pro');
-  font-weight: normal;
-  font-style: normal;
-}
-.totalText{
-    font-family: 'SF-Pro', sans-serif;
-    font-weight: 400;
-    font-size: 24px;
 
-}
-.totalTextBold{
-    font-family: 'SF-Pro', sans-serif;
-    font-weight: 800;
-}
 .cartTitle{
     font-family: 'SF-Pro', sans-serif;
     font-weight: 500;
