@@ -7,6 +7,6 @@
 
 <script setup lang="ts">
 import LandingPage from './views/LandingPage.vue';
-import ProductPage from './views/LandingPage2.vue';
+import ProductPage from './views/ProductCatalogPage.vue';
 </script>
 

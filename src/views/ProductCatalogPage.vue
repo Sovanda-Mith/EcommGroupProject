@@ -39,8 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import SidebarComponent from "@/components/LandingPage2Component/SidebarComponent.vue";
-import ProductGrid from "@/components/LandingPage2Component/ProductGrid.vue";
+import SidebarComponent from "@/components/ProductCatalogComponent/SidebarComponent.vue";
+import ProductGrid from "@/components/ProductCatalogComponent/ProductGrid.vue";
 import { ref, computed } from "vue";
 
 interface Product {
@@ -64,7 +64,7 @@ const products: Product[] = [
   {
     id: 2,
     name: "DualSense Fortnite Edition",
-    tag: "",
+    tag: " ",
     image: "src/assets/landPage2Img/DualSenseFortniteEdition.jpg",
     reviews: 523,
     price: 75
