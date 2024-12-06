@@ -17,6 +17,11 @@ const router = createRouter({
       name: 'signup',
       component: () => import('../views/auth/signup.vue'),
     },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import('../views/auth/terms.vue'),
+    },
 
     //===============================================>> Landing Pages
     {
