@@ -4,6 +4,6 @@
 </template>
 
 <script setup lang="ts">
-import NavBar from '@/components/NavBar.vue'
-import PromotionBar from '@/components/PromotionBar.vue'
+import NavBar from '@/components/LandingPageComponent/NavBar.vue'
+import PromotionBar from '@/components/LandingPageComponent/PromotionBar.vue'
 </script>

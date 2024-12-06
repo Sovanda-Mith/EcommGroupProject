@@ -39,8 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import SidebarComponent from "@/components/SidebarComponent.vue";
-import ProductGrid from "@/components/ProductGrid.vue";
+import SidebarComponent from "@/components/LandingPage2Component/SidebarComponent.vue";
+import ProductGrid from "@/components/LandingPage2Component/ProductGrid.vue";
 import { ref, computed } from "vue";
 
 interface Product {
@@ -53,31 +53,55 @@ interface Product {
 }
 
 const products: Product[] = [
-  { id: 1, name: "PS2 Controller", tag: "HOT", image: "src/assets/images/angle-right-svgrepo-com.svg", reviews: 230, price: 30 },
-  { id: 2, name: "DualSense Fortnite Edition", tag: "", image: "", reviews: 523, price: 75 },
-  { id: 3, name: "Sony DualSense - Blue", tag: "", image: "", reviews: 401, price: 75 },
-  { id: 4, name: "Sony PS5 DualSense", tag: "BEST DEALS", image: "", reviews: 1006, price: 63 },
-  { id: 5, name: "Razer Wolverine V2", tag: "", image: "", reviews: 1761, price: 45 },
-  { id: 6, name: "PDP Xbox REMATCH GLOW", tag: "HOT", image: "", reviews: 9021, price: 30 },
-  { id: 7, name: "PS2 Controller", tag: "HOT", image: "", reviews: 230, price: 30 },
-  { id: 8, name: "DualSense Fortnite Edition", tag: "", image: "", reviews: 523, price: 75 },
-  { id: 9, name: "Sony DualSense - Blue", tag: "", image: "", reviews: 401, price: 75 },
-  { id: 10, name: "Sony PS5 DualSense", tag: "BEST DEALS", image: "", reviews: 1006, price: 63 },
-  { id: 11, name: "Razer Wolverine V2", tag: "", image: "", reviews: 1761, price: 45 },
-  { id: 12, name: "PDP Xbox REMATCH GLOW", tag: "HOT", image: "", reviews: 9021, price: 30 },
-  { id: 13, name: "PS2 Controller", tag: "HOT", image: "", reviews: 230, price: 30 },
-  { id: 14, name: "DualSense Fortnite Edition", tag: "", image: "", reviews: 523, price: 75 },
-  { id: 15, name: "Sony DualSense - Blue", tag: "", image: "", reviews: 401, price: 75 },
-  { id: 16, name: "Sony PS5 DualSense", tag: "BEST DEALS", image: "", reviews: 1006, price: 63 },
-  { id: 17, name: "Razer Wolverine V2", tag: "", image: "", reviews: 1761, price: 45 },
-  { id: 18, name: "PDP Xbox REMATCH GLOW", tag: "HOT", image: "", reviews: 9021, price: 30 },
-  { id: 19, name: "PS2 Controller", tag: "HOT", image: "", reviews: 230, price: 30 },
-  { id: 20, name: "DualSense Fortnite Edition", tag: "", image: "", reviews: 523, price: 75 },
-  { id: 21, name: "Sony DualSense - Blue", tag: "", image: "", reviews: 401, price: 75 },
-  { id: 22, name: "Sony PS5 DualSense", tag: "BEST DEALS", image: "", reviews: 1006, price: 63 },
-  { id: 23, name: "Razer Wolverine V2", tag: "", image: "", reviews: 1761, price: 45 },
-  { id: 24, name: "PDP Xbox REMATCH GLOW", tag: "HOT", image: "", reviews: 9021, price: 30 },
-  { id: 25, name: "PDP Xbox REMATCH GLOW", tag: "HOT", image: "", reviews: 9021, price: 30 },
+  {
+    id: 1,
+    name: "PS2 Controller",
+    tag: "HOT",
+    image: "src/assets/landPage2Img/ps2.jpg",
+    reviews: 230,
+    price: 30
+  },
+  {
+    id: 2,
+    name: "DualSense Fortnite Edition",
+    tag: "",
+    image: "src/assets/landPage2Img/DualSenseFortniteEdition.jpg",
+    reviews: 523,
+    price: 75
+  },
+  {
+    id: 3,
+    name: "Sony DualSense - Blue",
+    tag: "",
+    image: "src/assets/landPage2Img/SonyDualSense-Blue.jpg",
+    reviews: 401,
+    price: 75
+  },
+  {
+    id: 4,
+    name: "Sony PS5 DualSense",
+    tag: "BEST DEALS",
+    image: "src/assets/landPage2Img/SonyPS5DualSense.jpg",
+    reviews: 1006,
+    price: 63
+  },
+  {
+    id: 5,
+    name: "Razer Wolverine V2",
+    tag: "",
+    image: "src/assets/landPage2Img/RazerWolverineV2.jpg",
+    reviews: 1761,
+    price: 45
+  },
+  {
+    id: 6,
+    name: "PDP Xbox REMATCH GLOW",
+    tag: "HOT",
+    image: "src/assets/landPage2Img/PDPXboxREMATCHGLOW.jpg",
+    reviews: 9021,
+    price: 30
+  },
+
 ];
 
 const currentPage = ref(1);
