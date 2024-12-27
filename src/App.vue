@@ -6,7 +6,6 @@
 </template>
 
 <script setup lang="ts">
-import LandingPage from './views/LandingPage.vue';
-import ProductPage from './views/ProductCatalogPage.vue';
+import LandingPage from "@/views/LandingPage.vue";
 </script>
 
