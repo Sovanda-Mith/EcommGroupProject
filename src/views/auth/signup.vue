@@ -80,10 +80,11 @@
   
   <script lang="ts">
   import { defineComponent, reactive } from 'vue';
-  
+  import { useRouter } from 'vue-router';
   export default defineComponent({
     name: 'SignupPage',
     setup() {
+      const router = useRouter();
       const signupForm = reactive({
         name: '',
         email: '',
@@ -102,6 +103,7 @@
             return;
       }
         console.log('Signup Data:', signupForm);
+        router.push('/');
       };
   
       return {

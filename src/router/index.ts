@@ -3,9 +3,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     //===============================================>> Auth
-    { 
-      path: '/', redirect: '/auth/login' // Default route redirects to login
-    }, 
+    // { 
+    //   path: '/', redirect: '/auth/login' // Default route redirects to login
+    // }, 
     {
       path: '/auth/login',
       name: 'login',
@@ -24,12 +24,12 @@ const router = createRouter({
 
     //===============================================>> Landing Pages
     {
-      path: '/computers',
-      name: 'LandingPage',
+      path: '/',
+      name: 'Home',
       component: () => import('../views/LandingPage.vue'),
     },
     {
-      path: '/CartPage',
+      path: '/cart',
       name: 'CartPage',
       component: () => import('../views/CartPage.vue'),
     },
@@ -37,7 +37,7 @@ const router = createRouter({
       path: '/checkout',
       name: 'CheckoutPage',
       component: () => import('../views/checkOutPage.vue'),
-    }
+    },
   ],
 })
 

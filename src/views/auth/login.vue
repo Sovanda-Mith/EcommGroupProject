@@ -47,10 +47,12 @@
   
   <script lang="ts">
   import { defineComponent, reactive } from 'vue';
+  import { useRouter } from 'vue-router';
   
   export default defineComponent({
     name: 'LoginPage',
     setup() {
+      const router = useRouter();
       const loginForm = reactive({
         email: '',
         password: ''
@@ -58,6 +60,7 @@
   
       const handleLogin = () => {
         console.log('Login Data:', loginForm);
+        router.push('/');
       };
   
       return {
