@@ -1,6 +1,9 @@
 <template>
-  <PromotionBar />
-  <NavBar />
+  <!-- Header -->
+  <div class="w-full fixed">
+    <PromotionBar />
+    <NavBar />
+  </div>
   <!-- Big Panel -->
   <div class="flex items-center bg-black">
     <img
@@ -44,6 +47,8 @@
   </div>
   <!-- Featured Products -->
   <FeaturedProducts />
+  <!-- Footer -->
+  <Footer />
 </template>
 
 <script setup lang="ts">
@@ -51,4 +56,5 @@ import FeaturedProducts from '@/components/LandingPageComponents/FeaturedProduct
 import NavBar from '@/components/LandingPageComponents/NavBar.vue'
 import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue'
 import ShopNowCard from '@/components/LandingPageComponents/ShopNowCard.vue'
+import Footer from '@/components/LandingPageComponents/FooterBar.vue'
 </script>
