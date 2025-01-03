@@ -29,7 +29,7 @@ const router = createRouter({
       component: () => import('../views/LandingPage.vue'),
     },
     {
-      path: '/',
+      path: '/CartPage',
       name: 'CartPage',
       component: () => import('../views/CartPage.vue'),
     },
