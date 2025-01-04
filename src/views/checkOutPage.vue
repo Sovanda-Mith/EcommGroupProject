@@ -133,7 +133,7 @@ const handleSelection = (country: string) => {
             <!-- forwardBtn -->
             <forwardBtnCart class="btnText" to="/checkout" btnText="Continue to Payment" width="350px" height="70px" gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
             <!-- backBtn -->
-            <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/CartPage"></backBtnCart>
+            <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/cart"></backBtnCart>
           </div>
 
 

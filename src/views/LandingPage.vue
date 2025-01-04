@@ -48,8 +48,8 @@
 
 <script setup lang="ts">
 
-import NavBar from '@/components/LandingPageComponent/NavBar.vue';
-import PromotionBar from '@/components/LandingPageComponent/PromotionBar.vue';
+// import NavBar from '@/components/LandingPageComponent/NavBar.vue';
+// import PromotionBar from '@/components/LandingPageComponent/PromotionBar.vue';
 import FeaturedProducts from '@/components/LandingPageComponents/FeaturedProducts.vue'
 import NavBar from '@/components/LandingPageComponents/NavBar.vue'
 import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue'
