@@ -48,19 +48,29 @@
   <script lang="ts">
   import { defineComponent, reactive } from 'vue';
   import { useRouter } from 'vue-router';
-  
+  import { useAuthStore } from '@/stores/auth';
+
   export default defineComponent({
     name: 'LoginPage',
     setup() {
       const router = useRouter();
+      const authStore = useAuthStore();
       const loginForm = reactive({
         email: '',
         password: ''
       });
   
       const handleLogin = () => {
-        console.log('Login Data:', loginForm);
-        router.push('/');
+
+        if (loginForm.email && loginForm.password) {
+          const isValid = authStore.login(loginForm.email, loginForm.password);
+          if(isValid){
+            router.push('/');
+          }else{
+            alert("Invalid name or password!")
+          }
+        } 
+        
       };
   
       return {

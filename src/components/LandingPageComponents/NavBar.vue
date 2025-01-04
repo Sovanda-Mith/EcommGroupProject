@@ -25,24 +25,38 @@
     </nav>
     <div class="flex h-[80px] items-center justify-evenly w-1/5">
       <ButtonIcon icon="../../src/assets/landPageImg/search-svgrepo-com.svg" text="Search" />
-      <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" text="Login" />
+      <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
       <ButtonIcon icon="../../src/assets/landPageImg/cart-plus-svgrepo-com.svg" text="Cart" />
     </div>
   </div>
 </template>
 
-<!-- <script lang="ts">
+<script lang="ts">
 import ButtonIcon from './ButtonIcon.vue';
+import { defineComponent, ref, onMounted } from 'vue';
 
-export default {
+export default defineComponent({
   name: 'NavBar',
   components: {
-    ButtonIcon
-  }
-}
-</script> -->
-<script setup lang="ts">
-import ButtonIcon from './ButtonIcon.vue';
+    ButtonIcon,
+  },
+  setup() {
+    const authText = ref('Login'); // Default text
+
+    // Check for 'name' in localStorage on component mount
+    onMounted(() => {
+      const storedName = localStorage.getItem('name');
+      if(storedName){
+        authText.value = 'Logged';
+      }
+      
+    });
+
+    return {
+      authText,
+    };
+  },
+});
 </script>
 
 <style scoped>

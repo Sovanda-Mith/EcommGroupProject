@@ -81,10 +81,13 @@
   <script lang="ts">
   import { defineComponent, reactive } from 'vue';
   import { useRouter } from 'vue-router';
+  import { useAuthStore } from '@/stores/auth';
+
   export default defineComponent({
     name: 'SignupPage',
     setup() {
       const router = useRouter();
+      const authStore = useAuthStore();
       const signupForm = reactive({
         name: '',
         email: '',
@@ -101,9 +104,13 @@
         if (!signupForm.agreeToTerms) {
             alert('You must agree to the terms and conditions!');
             return;
-      }
-        console.log('Signup Data:', signupForm);
-        router.push('/');
+        }
+        //save to localStorage in pinia
+        if(signupForm.name && signupForm.email && signupForm.password){
+          authStore.signup(signupForm.name, signupForm.email, signupForm.password);
+          router.push('/');
+        }
+        
       };
   
       return {
