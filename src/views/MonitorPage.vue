@@ -1,4 +1,6 @@
 <template>
+  <PromotionBar />
+  <NavBar />
   <div class="flex">
     <SidebarComponent />
 
@@ -45,6 +47,8 @@ export default {
 </script>
 
 <script setup lang="ts">
+import NavBar from '@/components/LandingPageComponent/NavBar.vue';
+import PromotionBar from '@/components/LandingPageComponent/PromotionBar.vue';
 import SidebarComponent from "@/components/ProductCatalogComponent/SidebarComponent.vue";
 import ProductGrid from "@/components/ProductCatalogComponent/ProductGrid.vue";
 import { ref, computed } from "vue";
