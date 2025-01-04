@@ -55,7 +55,7 @@ p{
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  color: grey;
+  color: rgb(56, 55, 55);
   transition: 0.3s;
   font-weight: bold;
   text-transform: uppercase;
