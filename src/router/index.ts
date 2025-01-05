@@ -62,15 +62,21 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'CartPage',
-      component: () => import('../views/CartPage.vue'),
+      component: () => import('../views/checkout/CartPage.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/checkout',
       name: 'CheckoutPage',
-      component: () => import('../views/checkOutPage.vue'),
+      component: () => import('../views/checkout/checkOutPage.vue'),
       meta: { requiresAuth: true },
     },
+    {
+      path: '/payment',
+      name: 'PaymentPage',
+      component: () => import('../views/checkout/PaymentPage.vue'),
+      meta: { requiresAuth: true },
+    }
   ],
 });
 
