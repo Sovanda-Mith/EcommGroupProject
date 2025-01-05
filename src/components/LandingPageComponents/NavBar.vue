@@ -32,8 +32,8 @@
 </template>
 
 <script lang="ts">
-import ButtonIcon from './ButtonIcon.vue';
-import { defineComponent, ref, onMounted } from 'vue';
+import ButtonIcon from './ButtonIcon.vue'
+import { defineComponent, ref, onMounted } from 'vue'
 
 export default defineComponent({
   name: 'NavBar',
@@ -41,28 +41,27 @@ export default defineComponent({
     ButtonIcon,
   },
   setup() {
-    const authText = ref('Login'); // Default text
+    const authText = ref('Login') // Default text
 
     // Check for 'name' in localStorage on component mount
     onMounted(() => {
-      const storedName = localStorage.getItem('name');
-      if(storedName){
-        authText.value = 'Logged';
+      const storedName = localStorage.getItem('name')
+      if (storedName) {
+        authText.value = 'Logged'
       }
-      
-    });
+    })
 
     return {
       authText,
-    };
+    }
   },
-});
+})
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&family=Rammetto+One&family=Rowdies:wght@300;400;700&display=swap');
-p{
-  font-family: "Rammetto One", sans-serif;
+p {
+  font-family: 'Rammetto One', sans-serif;
 }
 .hover-effect {
   padding: 0 0.5em 0.25em;
@@ -80,7 +79,7 @@ p{
 }
 
 .hover-effect:before {
-  content: "";
+  content: '';
   position: absolute;
   inset: calc(100% - 3px) 0 0 0; /* 3px = the thickness */
   background: #ce4f20; /* the color */

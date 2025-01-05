@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center mt-10 space-y-5">
     <h1 class="text-[64px] font-semibold">Featured Products</h1>
     <p class="text-[32px]">Products that we think you need</p>
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto container-snap">
       <div class="flex space-x-10">
         <FeaturedCard
           v-for="product in products"
@@ -52,3 +52,15 @@ const products = [
   },
 ]
 </script>
+<style scoped>
+/* Hide scrollbar for Chrome, Safari and Opera */
+.container-snap::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.container-snap {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
