@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[1292.2px] h-[80px] bg-[#606868] flex justify-center items-center rounded-t-[50px]">
+    <div class="w-100% h-[80px] bg-[#606868] flex justify-center items-center rounded-t-[50px]">
         <div class="title text-white text-[26px] font-semibold">{{ title }}</div>
     </div>
 </template>

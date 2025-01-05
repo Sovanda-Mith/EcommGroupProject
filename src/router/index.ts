@@ -4,9 +4,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     //===============================================>> Auth
-    // { 
+    // {
     //   path: '/', redirect: '/auth/login' // Default route redirects to login
-    // }, 
+    // },
     {
       path: '/auth/login',
       name: 'login',
@@ -62,15 +62,21 @@ const router = createRouter({
     {
       path: '/cart',
       name: 'CartPage',
-      component: () => import('../views/CartPage.vue'),
+      component: () => import('../views/checkout/CartPage.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/checkout',
       name: 'CheckoutPage',
-      component: () => import('../views/checkOutPage.vue'),
+      component: () => import('../views/checkout/checkOutPage.vue'),
       meta: { requiresAuth: true },
     },
+    {
+      path: '/payment',
+      name: 'PaymentPage',
+      component: () => import('../views/checkout/PaymentPage.vue'),
+      meta: { requiresAuth: true },
+    }
   ],
 });
 

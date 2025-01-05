@@ -1,11 +1,11 @@
 <script setup lang="ts">
 
-import productIncart from '../components/checkoutComponents/productIncart.vue';
-import backBtnCart from '../components/checkoutComponents/backBtnCart.vue';
-import forwardBtnCart from '../components/checkoutComponents/forwardBtnCart.vue';
-import headerCart from '../components/checkoutComponents/headerCart.vue';
-import NavBar from '../components/LandingPageComponents/NavBar.vue';
-import PromotionBar from '../components/LandingPageComponents/PromotionBar.vue';
+import productIncart from '@/components/checkoutComponents/productIncart.vue';
+import backBtnCart from '@/components/checkoutComponents/backBtnCart.vue';
+import forwardBtnCart from '@/components/checkoutComponents/forwardBtnCart.vue';
+import headerCart from '@/components/checkoutComponents/headerCart.vue';
+import NavBar from '@/components/LandingPageComponents/NavBar.vue';
+import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue';
 import '@/assets/main.css';
 import TotalComp from '@/components/checkoutComponents/totalComp.vue';
 </script>

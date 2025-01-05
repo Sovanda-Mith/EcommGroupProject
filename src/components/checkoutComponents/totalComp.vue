@@ -3,12 +3,12 @@
     <div class="flex flex-col gap-[17px] w-[220px]">
       <div class="totalText">Subtotal</div>
       <div class="totalText">Shipping & Handling</div>
-      <div class="totalTextBold font-bold text-[28px]">Total</div>
+      <div class="totalTextBold font-bold">Total</div>
     </div>
     <div class="flex flex-col gap-[17px]">
       <div class="totalText">{{ subTotal }}</div>
       <div class="totalText">{{ shipping }}</div>
-      <div class="totalTextBold text-[28px] font-bold">{{ total }}</div>
+      <div class="totalTextBold font-bold">{{ total }}</div>
     </div>
   </div>
 </template>
@@ -28,5 +28,7 @@ export default {
 .totalTextBold {
   font-family: 'SF-Pro', sans-serif;
   font-weight: 800;
+  font-size: 28px;
+  
 }
 </style>
