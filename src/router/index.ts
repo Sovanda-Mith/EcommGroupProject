@@ -22,6 +22,16 @@ const router = createRouter({
       name: 'terms',
       component: () => import('../views/auth/terms.vue'),
     },
+    {
+      path: '/auth/profile',
+      name: 'profile',
+      component: () => import('../views/auth/profile.vue'),
+    },
+    {
+      path: '/auth/profile-update',
+      name: 'profileUpdate',
+      component: () => import('../views/auth/profileUpdate.vue'),
+    },
 
     //===============================================>> Landing Pages
     {

@@ -67,7 +67,7 @@
           if(isValid){
             router.push('/');
           }else{
-            alert("Invalid name or password!")
+            alert("Invalid name or password! Sigup first if you don't have an account!")
           }
         } 
         
