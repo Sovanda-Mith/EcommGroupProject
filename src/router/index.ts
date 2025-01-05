@@ -26,11 +26,13 @@ const router = createRouter({
       path: '/auth/profile',
       name: 'profile',
       component: () => import('../views/auth/profile.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/auth/profile-update',
       name: 'profileUpdate',
       component: () => import('../views/auth/profileUpdate.vue'),
+      meta: { requiresAuth: true },
     },
 
     //===============================================>> Landing Pages
