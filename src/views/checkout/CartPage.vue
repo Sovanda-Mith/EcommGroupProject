@@ -8,6 +8,7 @@ import NavBar from '@/components/LandingPageComponents/NavBar.vue';
 import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue';
 import '@/assets/main.css';
 import TotalComp from '@/components/checkoutComponents/totalComp.vue';
+
 </script>
 
 <template>
@@ -73,6 +74,7 @@ import TotalComp from '@/components/checkoutComponents/totalComp.vue';
 </style>
 
 <script lang="ts">
+
 export default {
   name: 'App',
   components: {
@@ -82,6 +84,7 @@ export default {
   },
   data() {
     return {
+
       products:[
       {img: "../src/assets/cartImg/headphones.webp", productName: "Bluetooth speakers", discount: "15%", finalPrice: "$ 59"},
       {img: "../src/assets/cartImg/headphones.webp", productName: "portable amplifier", discount: "20%", finalPrice: "$ 89"},

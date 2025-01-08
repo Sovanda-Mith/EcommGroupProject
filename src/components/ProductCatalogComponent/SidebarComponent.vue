@@ -5,7 +5,9 @@
       <h2 class="text-lg font-semibold mb-4">Top Search</h2>
       <ul>
         <li v-for="item in topSearch" :key="item" class="mb-2">
-          <a href="#" class="text-gray-700 hover:text-blue-500">{{ item }}</a>
+          <router-link :to="{ path: `/category/${item}` }">
+            <a href="#" class="text-gray-700 hover:text-blue-500">{{ item }}</a>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -69,7 +71,7 @@ interface FeaturedProduct {
   price: number;
 }
 
-const topSearch: string[] = ["Headphone", "Keyboard", "Headsets", "Controller"];
+const topSearch: string[] = ["Headphone", "Keyboard", "Audio", "Controller"];
 
 const priceRanges: PriceRange[] = [
   { label: "All Prices" },
