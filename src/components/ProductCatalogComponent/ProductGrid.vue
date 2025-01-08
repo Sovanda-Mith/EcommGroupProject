@@ -2,7 +2,7 @@
   <div class="grid grid-cols-4 gap-6">
     <div
       v-for="product in products"
-      :key="product.id"
+      :key="product.productId"
       class="bg-white p-4 border rounded shadow-sm">
       <span v-if="product.tag"
       class="[
@@ -18,24 +18,22 @@
       />
       <h3 class="font-semibold text-base">{{ product.name }}</h3>
       <p class="text-yellow-500 text-sm">
-        ★★★★☆ ({{ product.reviews }})
+        ★★★★☆ ({{ product.reviewsNum }})
       </p>
-      <p class="text-lg font-bold text-gray-800 mt-2">${{ product.price }}</p>
+      <div class="flex justify-between items-center">
+        <p class="text-lg font-bold text-gray-800 mt-2">${{ product.price }}</p>
+        <button class="w-[200px] h-[50px] bg-[#82C89F] text-white py-2 rounded mt-4 hover:bg-blue-700">
+          Add to Cart
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-interface Product {
-  id: number | string;
-  name: string;
-  image: string;
-  tag?: string; // Optional property
-  reviews: number;
-  price: number;
-}
+import {type productState } from '@/stores/product';
 
 defineProps<{
-  products: Product[];
+  products: productState[];
 }>();
 </script>

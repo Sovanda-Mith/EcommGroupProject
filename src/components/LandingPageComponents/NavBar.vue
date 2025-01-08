@@ -4,19 +4,19 @@
       <router-link to="/">
         <img src="../../assets/landPageImg/logo_dark.png" alt="logo" class="w-[80px]" />
       </router-link>
-      <router-link to="/keyboard">
+      <router-link to="/category/Keyboard">
         <p class="hover-effect">Keyboard</p>
       </router-link>
-      <router-link to="/mouse">
+      <router-link to="/category/Mouse">
         <p class="hover-effect">Mouse</p>
       </router-link>
-      <router-link to="/monitor">
+      <router-link to="/category/Monitor">
         <p class="hover-effect">Monitor</p>
       </router-link>
-      <router-link to="/audio">
+      <router-link to="/category/Audio">
         <p class="hover-effect">Audio</p>
       </router-link>
-      <router-link to="/controller">
+      <router-link to="/category/Controller">
         <p class="hover-effect">Controller</p>
       </router-link>
       <router-link to="#">

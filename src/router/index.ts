@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/auth';
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+    routes: [
     //===============================================>> Auth
     // {
     //   path: '/', redirect: '/auth/login' // Default route redirects to login
@@ -41,36 +41,48 @@ const router = createRouter({
       name: 'Home',
       component: () => import('../views/LandingPage.vue'),
     },
+
     {
-      path: '/keyboard',
-      name: 'KeyboardPage',
-      component: () => import('../views/KeyboardPage.vue'),
+      path: '/category',
+      name: 'categoryPage',
+      component: () => import('../views/Category.vue'),
+      children: [
+        {
+          path: 'Keyboard',
+          name: 'KeyboardPage',
+          component: () => import('../views/KeyboardPage.vue'),
+        },
+        {
+          path: 'Mouse',
+          name: 'MousePage',
+          component: () => import('../views/MousePage.vue'),
+        },
+        {
+          path: 'Monitor',
+          name: 'MonitorPage',
+          component: () => import('../views/MonitorPage.vue'),
+        },
+        {
+          path:'Audio',
+          name:'AudioPage',
+          component:()=>import('../views/AudioPage.vue')
+
+        },
+        {
+          path:'Controller',
+          name:'ControllerPage',
+          component: () => import('../views/ControllerPage.vue'),
+        }
+        // {
+        //   path:'Others',
+        //   name:'OthersPage',
+        //   component: () => import('../views/OthersPage.vue'),
+        // }
+
+      ],
       meta: { requiresAuth: true },
     },
-    {
-      path: '/mouse',
-      name: 'MousePage',
-      component: () => import('../views/MousePage.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/monitor',
-      name: 'MonitorPage',
-      component: () => import('../views/MonitorPage.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/audio',
-      name: 'AudioPage',
-      component: () => import('../views/AudioPage.vue'),
-      meta: { requiresAuth: true },
-    },
-    {
-      path: '/controller',
-      name: 'ControllerPage',
-      component: () => import('../views/ControllerPage.vue'),
-      meta: { requiresAuth: true },
-    },
+
     {
       path: '/cart',
       name: 'CartPage',
