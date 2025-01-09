@@ -83,24 +83,35 @@ const router = createRouter({
       meta: { requiresAuth: true },
     },
 
-    {
-      path: '/cart',
-      name: 'CartPage',
-      component: () => import('../views/checkout/CartPage.vue'),
-      meta: { requiresAuth: true },
-    },
+    //===============================================>> Checkout
     {
       path: '/checkout',
       name: 'CheckoutPage',
-      component: () => import('../views/checkout/checkOutPage.vue'),
+      component: () => import('../views/checkout/CheckoutPage.vue'),
+      redirect: '/checkout/cart',
+      children: [
+        {
+          path: 'cart',
+          name: 'CartPage',
+          component: () => import('../views/checkout/CartPage.vue'),
+
+        },
+        {
+          path: 'orderInfo',
+          name: 'OrderInfo',
+          component: () => import('../views/checkout/orderInfo.vue'),
+
+        },
+        {
+          path: 'payment',
+          name: 'PaymentPage',
+          component: () => import('../views/checkout/PaymentPage.vue'),
+
+        },
+      ],
       meta: { requiresAuth: true },
     },
-    {
-      path: '/payment',
-      name: 'PaymentPage',
-      component: () => import('../views/checkout/PaymentPage.vue'),
-      meta: { requiresAuth: true },
-    }
+
   ],
 });
 

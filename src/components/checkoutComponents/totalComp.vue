@@ -6,9 +6,9 @@
       <div class="totalTextBold font-bold">Total</div>
     </div>
     <div class="flex flex-col gap-[17px]">
-      <div class="totalText">{{ subTotal }}</div>
-      <div class="totalText">{{ shipping }}</div>
-      <div class="totalTextBold font-bold">{{ total }}</div>
+      <div class="totalText">$ {{ subTotal }}</div>
+      <div class="totalText">$ {{ shipping }}</div>
+      <div class="totalTextBold font-bold">$ {{ total }}</div>
     </div>
   </div>
 </template>
@@ -29,6 +29,6 @@ export default {
   font-family: 'SF-Pro', sans-serif;
   font-weight: 800;
   font-size: 28px;
-  
+
 }
 </style>

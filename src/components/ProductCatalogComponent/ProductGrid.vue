@@ -1,3 +1,4 @@
+
 <template>
   <div class="grid grid-cols-4 gap-6">
     <div
@@ -22,18 +23,25 @@
       </p>
       <div class="flex justify-between items-center">
         <p class="text-lg font-bold text-gray-800 mt-2">${{ product.price }}</p>
-        <button class="w-[200px] h-[50px] bg-[#82C89F] text-white py-2 rounded mt-4 hover:bg-blue-700">
+        <button @click="addToCart(product)" class="w-[200px] h-[50px] bg-[#82C89F] text-white py-2 rounded mt-4 hover:bg-blue-700">
           Add to Cart
         </button>
       </div>
     </div>
   </div>
 </template>
-
 <script setup lang="ts">
 import {type productState } from '@/stores/product';
+import { useCartProductStore } from '@/stores/cartProduct';
 
+const cartProductStore = useCartProductStore();
 defineProps<{
   products: productState[];
 }>();
+
+function addToCart(product: productState) {
+  cartProductStore.addToCart(product);
+  console.log(cartProductStore.allCartProducts);
+}
 </script>
+

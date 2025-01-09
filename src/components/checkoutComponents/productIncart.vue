@@ -2,7 +2,7 @@
     <div class="itemContainer pl-[10px] pr-[30px] pt-[10px] relative">
         <div class="flex gap-[20px] items-center">
             <img :src="img" alt="" class="img">
-            <div class="interFont text-black text-[20px] font-medium">{{ productName }}</div>
+            <div class="interFont text-black text-[20px] font-medium w-[200px]">{{ productName }}</div>
         </div>
         <div class="absolute left-[380px] w-[166.36px] h-[55px] rounded-[70px] flex justify-between items-center bg-[#CBD7D1] pl-[10px] pr-[10px]">
             <button><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,8 +19,11 @@
                 </svg>
             </button>
         </div>
-        <div class="interFont absolute left-[710px] w-[100px] h-[55px] bg-[#CBD7D1] flex justify-center items-center text-black rounded-[70px] text-[24px]">{{ discount }}</div>
-        <div class="interFont absolute left-[1040px] text-black text-[24px]">{{ finalPrice }}</div>
+        <div class="interFont absolute left-[710px] w-[100px] h-[55px] bg-[#CBD7D1] flex justify-center items-center text-black rounded-[70px] text-[24px]">{{ discount }}%</div>
+        <div class="absolute left-[980px] flex gap-[15px]">
+          <div class="interFont text-gray-500 text-[24px] line-through">${{ beforeDiscount }}</div>
+          <div class="interFont text-black text-[24px]">${{ finalPrice }}</div>
+        </div>
     </div>
 </template>
 <script lang="ts">
@@ -30,7 +33,8 @@ export default{
         "img",
         "productName",
         "discount",
-        "finalPrice"
+        "finalPrice",
+        "beforeDiscount",
     ],
 
 }
