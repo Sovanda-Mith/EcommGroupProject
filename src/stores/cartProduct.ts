@@ -16,6 +16,16 @@ export const useCartProductStore = defineStore("cartProduct", {
       }
     },
 
+    reduceQuantity(product: productState) {
+      const index = this.cartProducts.findIndex(p => p.product.productId === product.productId);
+      if (index !== -1) {
+        this.cartProducts[index].quantity--;
+        if (this.cartProducts[index].quantity === 0) {
+          this.cartProducts.splice(index, 1);
+        }
+      }
+    },
+
     removeFromCart(product: productState) {
       const index = this.cartProducts.findIndex(p => p.product.productId === product.productId);
       if (index !== -1) {
@@ -35,13 +45,10 @@ export const useCartProductStore = defineStore("cartProduct", {
     getCartProductById: (state) => (productId: number) => {
       return state.cartProducts.find(p => p.product.productId === productId);
     },
-    getCartProductByProductName: (state) => (productName: string) => {
-      return state.cartProducts.filter(p => p.product.name === productName);
-    },
-
     eachProductBeforeDiscount: (state) => (productId: number) => {
       const cartProduct = state.cartProducts.find(p => p.product.productId === productId);
-      return cartProduct ? cartProduct.product.price * cartProduct.quantity : 0;
+      const beforeDiscount = cartProduct ? cartProduct.product.price * cartProduct.quantity : 0;
+      return Math.round(beforeDiscount*100)/100;
     },
 
     eachProductTotalValue: (state)=>(productId: number) => {
@@ -61,7 +68,7 @@ export const useCartProductStore = defineStore("cartProduct", {
 
     getShippingCost: () => 10,
     getTotalCost():number{
-      return this.subtotalCartValue + this.getShippingCost;
+      return Math.round((this.subtotalCartValue + this.getShippingCost)*100)/100;
     }
   }
 })

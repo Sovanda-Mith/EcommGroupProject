@@ -77,7 +77,7 @@ const cartProductStore = useCartProductStore()
   <div
     class="w-100% max-h-[421px] flex flex-col items-center justify-start overflow-y-scroll scroll-p-2"
   >
-    <!-- <productIncart v-for="product in products" :key="product.productName" :img="product.img" :productName="product.productName" :discount="product.discount" :finalPrice="product.finalPrice"></productIncart> -->
+
     <productIncart
       v-for="productCart in cartProductStore.allCartProducts"
       :key="productCart.product.productId"
@@ -86,6 +86,8 @@ const cartProductStore = useCartProductStore()
       :discount="productCart.product.discount"
       :beforeDiscount="cartProductStore.eachProductBeforeDiscount(productCart.product.productId)"
       :finalPrice="cartProductStore.eachProductTotalValue(productCart.product.productId)"
+      :quantity="productCart.quantity"
+      :product="productCart.product"
     ></productIncart>
   </div>
 
@@ -94,11 +96,12 @@ const cartProductStore = useCartProductStore()
     class="absolute bottom-[30px] left-[30px]"
     btnText="Back To Shopping"
     gap="8px"
+    to="/"
   ></backBtnCart>
 
   <!-- total&forward -->
   <div
-    class="absolute right-[78px] bottom-[15px] mt-[23px] w-[440px] h-[210px] flex flex-col items-center"
+    class="absolute right-[78px] bottom-[15px] mt-[23px] w-[500px] h-[220px] flex flex-col items-center"
   >
     <TotalComp
       :subTotal="cartProductStore.subtotalCartValue"
@@ -133,6 +136,8 @@ const cartProductStore = useCartProductStore()
   font-weight: 500;
   font-size: 24px;
 }
+
+
 </style>
 
 <script lang="ts">

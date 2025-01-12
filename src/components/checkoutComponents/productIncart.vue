@@ -1,17 +1,17 @@
 <template>
-    <div class="itemContainer pl-[10px] pr-[30px] pt-[10px] relative">
-        <div class="flex gap-[20px] items-center">
+    <div class="itemContainer pl-[10px] pr-[30px] pt-[10px] relative hoverEffectcheckout">
+        <div class="flex gap-[20px] items-center ">
             <img :src="img" alt="" class="img">
             <div class="interFont text-black text-[20px] font-medium w-[200px]">{{ productName }}</div>
         </div>
         <div class="absolute left-[380px] w-[166.36px] h-[55px] rounded-[70px] flex justify-between items-center bg-[#CBD7D1] pl-[10px] pr-[10px]">
-            <button><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button @click="decreaseQuantity()"><svg width="30" height="31" viewBox="0 0 30 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.25 15.5H8.75" stroke="black" stroke-linecap="round"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15 28C21.9036 28 27.5 22.4036 27.5 15.5C27.5 8.59644 21.9036 3 15 3C8.09644 3 2.5 8.59644 2.5 15.5C2.5 22.4036 8.09644 28 15 28Z" stroke="black"/>
                 </svg>
             </button>
-            <span class="quantityTxt text-black text-[24px] font-">1</span>
-            <button >
+            <span class="interFont text-black text-[24px] font-bold">{{ quantity }}</span>
+            <button @click="increaseQuantity()">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M21.25 15H8.75" stroke="black" stroke-linecap="round"/>
                 <path d="M15 21.25V8.75" stroke="black" stroke-linecap="round"/>
@@ -27,17 +27,45 @@
     </div>
 </template>
 <script lang="ts">
-export default{
-    name:"productCart",
-    props: [
-        "img",
-        "productName",
-        "discount",
-        "finalPrice",
-        "beforeDiscount",
-    ],
+import { useCartProductStore } from '@/stores/cartProduct';
+import { type productState } from '@/stores/product';
 
-}
+const cartProductStore = useCartProductStore();
+
+export default {
+  name: "productCart",
+  props: {
+    img: String,
+    productName: String,
+    discount: Number,
+    finalPrice: Number,
+    beforeDiscount: Number,
+    quantity: Number,
+    product: Object,
+  },
+  methods: {
+    increaseQuantity() {
+      if (this.product && typeof this.product === "object") { //check type
+        cartProductStore.addToCart(this.product as productState);
+        console.log("Product increased:", this.product);
+      } else {
+        console.error("Product is undefined or not a valid object");
+      }
+    },
+    decreaseQuantity() {
+      if (this.product && typeof this.product === "object") { //check type
+        cartProductStore.reduceQuantity(this.product as productState);
+        console.log("Product decreased:", this.product);
+      } else {
+        console.error("Product is undefined or not a valid object");
+      }
+    }
+  },
+};
+
+
+
+
 
 </script>
 <style scoped>
@@ -72,7 +100,12 @@ export default{
 .interFont{
     font-family: 'SF-Pro', sans-serif;
 }
-.quantityTxt{
-    font-family: 'Rowdies', sans-serif;
+.hoverEffectcheckout{
+  transition: all 0.3s ease-in-out;
+}
+.hoverEffectcheckout:hover {
+  transform: scale(1.04);
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 </style>

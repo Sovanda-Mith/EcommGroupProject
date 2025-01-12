@@ -50,10 +50,8 @@ watch(selectedPaymentMethod, (newValue) => {
     <span class="inactive">Payments (via Card)</span>
   </div>
 
-  <div
-    class="flex p-[20px] h-[calc(100%-140px)] rounded-b-[50px]"
-    style="font-family: 'SF-Pro', sans-serif; font-weight: 300"
-  >
+  <div class="flex p-[20px] h-[calc(100%-140px)] rounded-b-[50px]"
+    style="font-family: 'SF-Pro', sans-serif; font-weight: 300">
     <!-- form payment -->
     <div class="w-[calc(100%-483px)] h-100%">
       <form id="bootstrapForm">
@@ -69,94 +67,53 @@ watch(selectedPaymentMethod, (newValue) => {
           <div class="row">
             <div class="col">
               <div class="form-label">First Name</div>
-              <input
-                type="text"
-                class="form-control"
-                v-model="paymentStore.firstname"
-                id="formFirstNameInput"
-                placeholder="First name"
-                aria-label="First name"
-              />
+              <input type="text" class="form-control" v-model="paymentStore.firstname" id="formFirstNameInput"
+                placeholder="First name" aria-label="First name" />
             </div>
 
             <div class="col">
               <div class="form-label">Last Name</div>
-              <input
-                type="text"
-                class="form-control"
-                v-model="paymentStore.lastname"
-                id="formLastNameInput"
-                placeholder="Last name"
-                aria-label="Last name"
-              />
+              <input type="text" class="form-control" v-model="paymentStore.lastname" id="formLastNameInput"
+                placeholder="Last name" aria-label="Last name" />
             </div>
           </div>
         </div>
         <!-- address -->
         <div class="mb-3">
           <label for="formAddressInput" class="form-label">Address</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="paymentStore.address"
-            id="formAddressInput"
-            placeholder="3700 Noxus"
-          />
+          <input type="text" class="form-control" v-model="paymentStore.address" id="formAddressInput"
+            placeholder="3700 Noxus" />
         </div>
         <!-- city&postal -->
         <div class="mb-3">
           <div class="row">
             <div class="col">
               <div class="form-label">City</div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Hidden Leaf"
-                v-model="paymentStore.city"
-              />
+              <input type="text" class="form-control" placeholder="Hidden Leaf" v-model="paymentStore.city" />
             </div>
             <div class="col">
               <div class="form-label">Postal Code</div>
-              <input
-                type="text"
-                class="form-control"
-                placeholder="01680"
-                v-model="paymentStore.postalcode"
-              />
+              <input type="text" class="form-control" placeholder="01680" v-model="paymentStore.postalcode" />
             </div>
           </div>
         </div>
         <!-- email -->
         <div class="mb-3">
           <label for="formEmailInput" class="form-label">Email Address</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="paymentStore.email"
-            id="formEmailInput"
-            placeholder="Yasuo@example.com"
-          />
+          <input type="text" class="form-control" v-model="paymentStore.email" id="formEmailInput"
+            placeholder="Yasuo@example.com" />
         </div>
         <!-- phone number -->
         <div class="mb-3">
           <label for="formPhoneInput" class="form-label">Phone Number</label>
-          <input
-            type="text"
-            class="form-control"
-            v-model="paymentStore.phonenumber"
-            id="formPhoneInput"
-            placeholder="+855 (168) 000-0000"
-          />
+          <input type="text" class="form-control" v-model="paymentStore.phonenumber" id="formPhoneInput"
+            placeholder="+855 (168) 000-0000" />
         </div>
         <!-- check box -->
         <div class="mb-3 ml-10 form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-          <label
-            class="form-check-label"
-            for="exampleCheck1"
-            style="font-family: 'SF-Pro', sans-serif"
-            >You agree to our friendly privacy policy</label
-          >
+          <label class="form-check-label" for="exampleCheck1" style="font-family: 'SF-Pro', sans-serif">You agree to our
+            friendly privacy policy</label>
         </div>
       </form>
     </div>
@@ -167,18 +124,10 @@ watch(selectedPaymentMethod, (newValue) => {
         <div class="flex flex-col">
           <label class="form-label paymentText">Have any Discount code or Coupon</label>
           <div class="flex items-center justify-center gap-3">
-            <input
-              v-model="paymentStore.coupon"
-              placeholder="COUPON"
-              style="font-family: 'SF-Pro', sans-serif"
-              type="text"
-              class="form-control text-[24px] w-[300px] h-[70px]"
-              aria-describedby="emailHelp"
-            />
-            <div
-              @click="checkCoupon(paymentStore.coupon)"
-              class="mb-[10px] bg-white text-black border-black border-[1px] rounded-[10px] w-[90px] h-[70px] mt-[20px] flex justify-center items-center"
-            >
+            <input v-model="paymentStore.coupon" placeholder="COUPON" style="font-family: 'SF-Pro', sans-serif"
+              type="text" class="form-control text-[24px] w-[300px] h-[70px]" aria-describedby="emailHelp" />
+            <div @click="checkCoupon(paymentStore.coupon)"
+              class="mb-[10px] bg-white text-black border-black border-[1px] rounded-[10px] w-[90px] h-[70px] mt-[20px] flex justify-center items-center">
               Apply
             </div>
           </div>
@@ -188,23 +137,13 @@ watch(selectedPaymentMethod, (newValue) => {
       <!-- paymentMethod -->
       <div>
         <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            v-model="selectedPaymentMethod"
-            value="flexRadioCreditCard"
-            name="flexRadioPayment"
-            id="flexRadioCreditCard"
-          />
+          <input class="form-check-input" type="radio" v-model="selectedPaymentMethod" value="flexRadioCreditCard"
+            name="flexRadioPayment" id="flexRadioCreditCard" />
           <label class="form-check-label" for="flexRadioDefault1">
             <div class="flex flex-col gap-2 pb-2">
               <p class="paymentText">Pay by Credit Card / QR code</p>
               <div class="flex gap-3 items-center">
-                <img
-                  src="@/assets/cartImg/MasterCard_Logo_svg.png"
-                  class="w-[40px] h-[25px]"
-                  alt=""
-                />
+                <img src="@/assets/cartImg/MasterCard_Logo_svg.png" class="w-[40px] h-[25px]" alt="" />
                 <img src="@/assets/cartImg/Visa_2021.svg.png" class="w-[5 0px] h-[20px]" alt="" />
                 <img src="@/assets/cartImg/bakong.png" class="w-[35px] h-[35px]" alt="" />
               </div>
@@ -212,37 +151,19 @@ watch(selectedPaymentMethod, (newValue) => {
           </label>
         </div>
         <div class="form-check">
-          <input
-            class="form-check-input"
-            type="radio"
-            v-model="selectedPaymentMethod"
-            value="flexRadioCashOnDelivery"
-            name="flexRadioPayment"
-            id="flexRadioCashOnDelivery"
-            checked
-          />
+          <input class="form-check-input" type="radio" v-model="selectedPaymentMethod" value="flexRadioCashOnDelivery"
+            name="flexRadioPayment" id="flexRadioCashOnDelivery" checked />
           <label class="form-check-label" for="flexRadioDefault2">
             <p class="paymentText">Cash on delivery</p>
           </label>
         </div>
       </div>
-      <TotalComp
-        :subTotal="cartProductStore.subtotalCartValue"
-        :shipping="cartProductStore.getShippingCost"
-        :total="cartProductStore.getTotalCost"
-      />
+      <TotalComp :subTotal="cartProductStore.subtotalCartValue" :shipping="cartProductStore.getShippingCost"
+        :total="cartProductStore.getTotalCost" />
       <div class="flex flex-col gap-[20px] justify-center items-center">
         <!-- forwardBtn -->
-        <forwardBtnCart
-          class="btnText"
-          to="/checkout/payment"
-          btnText="Continue to Payment"
-          width="350px"
-          height="70px"
-          gap="15px"
-          padleft="15px"
-          padright="15px"
-        ></forwardBtnCart>
+        <forwardBtnCart class="btnText" to="/checkout/payment" btnText="Continue to Payment" width="350px" height="70px"
+          gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
         <!-- backBtn -->
         <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/checkout/cart"></backBtnCart>
       </div>
@@ -259,26 +180,33 @@ watch(selectedPaymentMethod, (newValue) => {
 }
 
 .breadcrumb .separator {
-  margin: 0 8px; /* Add spacing around the ">" symbol */
-  color: #444; /* Slightly darker color */
+  margin: 0 8px;
+  /* Add spacing around the ">" symbol */
+  color: #444;
+  /* Slightly darker color */
 }
 
 .breadcrumb .active {
   font-weight: bold;
-  color: black; /* Highlight the current page */
+  color: black;
+  /* Highlight the current page */
 }
 
 .breadcrumb .inactive {
-  color: #ccc; /* Gray color for future steps */
+  color: #ccc;
+  /* Gray color for future steps */
 }
+
 .paymentText {
   font-family: 'SF-Pro', sans-serif;
   font-weight: 300;
   font-size: 24px;
 }
+
 .btnText {
   font-size: 24px;
 }
+
 .SFfont {
   font-family: 'SF-Pro', sans-serif;
 }

@@ -17,12 +17,6 @@ const showPopup = () => {
   popup?.classList.add('open-popup')
   paymentPage?.classList.add('paymentPage-blur')
 }
-const hidePopup = () => {
-  const popup = document.getElementById('popup')
-  const paymentPage = document.getElementById('paymentPage')
-  popup?.classList.remove('open-popup')
-  paymentPage?.classList.remove('paymentPage-blur')
-}
 </script>
 <template>
   <headerCart title="Payment" />
@@ -149,43 +143,9 @@ const hidePopup = () => {
       </div>
     </div>
   </div>
-  <div
-    id="popup"
-    class="popup bg-white w-[900px] h-[600px] gap-4 border-solid border-[1px] border-black rounded-[30px] flex flex-col justify-center items-center"
-    style="font-family: 'SF-Pro', sans-serif; font-weight: 300"
-  >
-    <img src="@/assets/cartImg/completeImg.jpeg" alt="logo" class="w-[200px]" />
-    <h2 class="text-[34px] font-bold">Thank you for the purchase</h2>
-    <p class="text-[24px]">Your order has been successfully placed.</p>
-    <button
-      id="closePopup"
-      class="w-[200px] h-[80px] border-solid border-[1px] border-black rounded-[30px] font-bold text-[28px]"
-      @click="hidePopup()"
-    >
-      Okay, Got it
-    </button>
-  </div>
+
 </template>
 <style>
-#closePopup:hover {
-  background-color: #82c89f;
-  color: white;
-}
-.popup {
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.1);
-  visibility: hidden;
-  transition:
-    transform 0.4s,
-    top 0.4s;
-}
-.open-popup {
-  visibility: visible;
-  top: 50%;
-  transform: translate(-50%, -50%) scale(1);
-}
 
 .breadcrumb {
   font-family: 'SF-Pro', sans-serif;
