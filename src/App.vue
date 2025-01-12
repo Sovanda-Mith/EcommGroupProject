@@ -36,6 +36,9 @@ import imageController27 from "@/assets/landPage2Img/Controller/SonyPS5DualSense
 import imageController28 from "@/assets/landPage2Img/Controller/RazerWolverineV2.jpg";
 import imageController29 from "@/assets/landPage2Img/Controller/PDPXboxREMATCHGLOW.jpg";
 
+import imageOther30 from "@/assets/landPage2Img/Other/HDMI.png";
+import imageOther31 from "@/assets/landPage2Img/Other/powercord.png";
+
 const ProductStore = useProductStore();
 
 //all productData
@@ -419,6 +422,30 @@ const allProducts = [
     tag: "HOT",
     reviewsNum: 9021,
   },
+  //other
+  {
+    productId:30,
+    name: "HDMI Cable",
+    price: 9.99,
+    category: "Other",
+    description: "HDMI cable for connecting digital devices.",
+    image: imageOther30,
+    discount: 3,
+    tag: "HOT",
+    reviewsNum: 10,
+  },
+  {
+    productId: 31,
+    name:"Power Cord, Black",
+    price: 9.99,
+    category: "Other",
+    description: "Power cord for connecting power outlets.",
+    image: imageOther31,
+    discount: 0,
+    tag: "HOT",
+    reviewsNum: 123,
+  },
+
 ];
 
 ProductStore.addMultipleProducts(allProducts);

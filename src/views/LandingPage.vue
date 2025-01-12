@@ -42,13 +42,15 @@
     <div class="flex justify-evenly mt-5">
       <ShopNowCard
         img="../../src/assets/landPageImg/budgetkeyboard.avif"
-        title="Best Budget Mouse"
-        description="Stylish mouse even in budget"
+        title="Best Budget Products"
+        description="Stylish products even in budget under $100"
+        to="/category/Budget"
       />
       <ShopNowCard
         img="../../src/assets/landPageImg/microphone.avif"
         title="Up to 50% Off Markdowns"
         description="Special Deals | Code: IPB3"
+        to="/category/Discount"
       />
       <ShopNowCard
         img="../../src/assets/landPageImg/streamdeck.avif"

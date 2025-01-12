@@ -27,13 +27,20 @@
           type="number"
           placeholder="Min price"
           class="w-1/2 p-2 border rounded"
+          id="minPriceInput"
+
         />
         <input
           type="number"
           placeholder="Max price"
           class="w-1/2 p-2 border rounded"
+          id="maxPriceInput"
+
         />
       </div>
+      <button class="w-full bg-blue-600 text-white py-2 rounded mt-4 hover:bg-blue-300" id="filterBtn">
+        Filter
+      </button>
     </div>
 
     <!-- Popular Brands -->
@@ -61,6 +68,7 @@
 </template>
 
 <script setup lang="ts">
+
 interface PriceRange {
   label: string;
 }
@@ -71,7 +79,7 @@ interface FeaturedProduct {
   price: number;
 }
 
-const topSearch: string[] = ["Headphone", "Keyboard", "Audio", "Controller"];
+const topSearch: string[] = ["Monitor", "Keyboard", "Audio", "Controller"];
 
 const priceRanges: PriceRange[] = [
   { label: "All Prices" },
@@ -91,4 +99,5 @@ const featuredProduct: FeaturedProduct = {
   description: "Mechanical Keyboard Wired Tricolor Backlit for PC Gamer.",
   price: 143,
 };
+
 </script>

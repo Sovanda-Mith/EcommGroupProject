@@ -19,7 +19,7 @@
       <router-link to="/category/Controller">
         <p class="hover-effect">Controller</p>
       </router-link>
-      <router-link to="#">
+      <router-link to="/category/Others">
         <p class="hover-effect">Others</p>
       </router-link>
     </nav>
