@@ -103,6 +103,7 @@ function addToCart(product: productState) {
   //for popup to activate
   const popup = document.getElementById('popup')
   const categoryPage = document.getElementById('categoryPage')
+  
 
   popup?.classList.add('open-popup')
   categoryPage?.classList.add('categoryPage-blur')

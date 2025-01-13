@@ -109,7 +109,7 @@ const cartProductStore = useCartProductStore()
     />
     <div class="flex flex-col items-center">
       <forwardBtnCart
-        to="/checkout/orderInfo"
+        to="/checkout/OrderInfo"
         btnText="Secure Check Out"
         width="280px"
         height="50px"

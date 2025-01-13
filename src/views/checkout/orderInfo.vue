@@ -38,6 +38,7 @@ watch(selectedPaymentMethod, (newValue) => {
     paymentStore.setPayment(PaymentMethod.CreditCard)
   } else if (newValue === 'flexRadioCashOnDelivery') {
     paymentStore.setPayment(PaymentMethod.CashOnDelivery)
+
   }
 })
 
@@ -161,7 +162,7 @@ const showPopup = () => {
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" v-model="selectedPaymentMethod" value="flexRadioCashOnDelivery"
-            name="flexRadioPayment" id="flexRadioCashOnDelivery" checked />
+            name="flexRadioPayment" id="flexRadioCashOnDelivery" />
           <label class="form-check-label" for="flexRadioDefault2">
             <p class="paymentText">Cash on delivery</p>
           </label>
@@ -171,7 +172,7 @@ const showPopup = () => {
         :total="cartProductStore.getTotalCost" />
       <div class="flex flex-col gap-[20px] justify-center items-center">
         <!-- forwardBtn -->
-        <forwardBtnCart class="btnText" to="/checkout/payment" btnText="Continue to Payment" width="350px" height="70px"
+        <forwardBtnCart class="btnText" to="/checkout/payment" btnText="Continue forward" width="350px" height="70px"
           gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
         <!-- backBtn -->
         <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/checkout/cart"></backBtnCart>

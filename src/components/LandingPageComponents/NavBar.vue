@@ -23,16 +23,16 @@
         <p class="hover-effect">Others</p>
       </router-link>
     </nav>
-    <div class="flex h-[80px] items-center justify-between w-full px-4">
-  <div class="search-box flex items-center">
-    <input type="text" v-model="searchQuery" placeholder="Search..." @keyup.enter="search" class="border rounded px-2 py-1">
-    <button @click="search" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
-  </div>
-  <div class="flex items-center space-x-4">
-    <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
-    <ButtonIcon icon="../../src/assets/landPageImg/cart-plus-svgrepo-com.svg" text="Cart" />
-  </div>
-</div>
+    <div class="flex h-[80px] items-center justify-end w-full px-4">
+      <div class="search-box flex items-center w-[30%] pr-10">
+        <input type="text" v-model="searchQuery" placeholder="Search..." @keyup.enter="search" class="border rounded px-2 py-1 searchText">
+        <button @click="search" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
+      </div>
+      <div class="flex items-center space-x-4">
+        <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
+        <ButtonIcon icon="../../src/assets/landPageImg/cart-plus-svgrepo-com.svg" text="Cart" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -76,6 +76,12 @@ export default defineComponent({
 p {
   font-family: 'Rammetto One', sans-serif;
 }
+@font-face {
+    font-family: 'SF-Pro';
+    src: url('../assets/fonts/SF-Pro.ttf') format('SF-Pro');
+    font-weight: normal;
+    font-style: normal;
+}
 .hover-effect {
   padding: 0 0.5em 0.25em;
   cursor: pointer;
@@ -103,5 +109,11 @@ p {
 .hover-effect:hover:before {
   scale: 1;
   transition: 0.3s;
+}
+.searchText{
+  font-family: 'SF-Pro', sans-serif;
+  font-weight: 800;
+  font-size: large;
+  width: 100%;
 }
 </style>

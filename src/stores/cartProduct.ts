@@ -72,7 +72,7 @@ export const useCartProductStore = defineStore("cartProduct", {
       return state.cartProducts.reduce((total, cartProduct) => {
         const beforeDiscount = cartProduct.product.price * cartProduct.quantity;
         const afterDiscount=beforeDiscount * (1 - (cartProduct.product.discount ?? 0) / 100);
-        return total + Math.round(afterDiscount*100)/100;
+        return Math.round(total*100)/100 + Math.round(afterDiscount*100)/100;
       },0); // Initialize total to 0 to make it a return type number
     },
 
@@ -80,6 +80,6 @@ export const useCartProductStore = defineStore("cartProduct", {
     getTotalCost():number{
       return Math.round((this.subtotalCartValue + this.getShippingCost)*100)/100;
     },
-
+    
   }
 })

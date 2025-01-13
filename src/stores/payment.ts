@@ -18,8 +18,9 @@ interface PaymentState {
 }
 export enum PaymentMethod {
   CreditCard = "CreditCard",
-  CashOnDelivery = "CashOnDelivery"
-  
+  CashOnDelivery = "CashOnDelivery",
+  none=""
+
 }
 export enum availableCoupon{
   Coupon1 = "ASVC32FG",
@@ -46,7 +47,7 @@ export const usePaymentStore = defineStore('payment', {
     email: '',
     phonenumber: '',
     coupon: '',
-    payment: PaymentMethod.CreditCard,
+    payment: PaymentMethod.none,
 
     nameCard: '',
     numberCard: '',
@@ -97,6 +98,23 @@ export const usePaymentStore = defineStore('payment', {
     setCsvCard(value: string) {
       this.csvCard = value;
     },
+    clearPayment() {
+      this.country = '';
+      this.firstname = '';
+      this.lastname = '';
+      this.address = '';
+      this.city = '';
+      this.postalcode = '';
+      this.email = '';
+      this.phonenumber = '';
+      this.coupon = '';
+      this.payment = PaymentMethod.none;
+
+      this.nameCard = '';
+      this.numberCard = '';
+      this.expDateCard = '';
+      this.csvCard = '';
+    }
   },
   getters: {
     getCountry: (state): string => state.country,
@@ -114,6 +132,8 @@ export const usePaymentStore = defineStore('payment', {
     getNumberCard: (state): string => state.numberCard,
     getExpDateCard: (state): string => state.expDateCard,
     getCsvCard: (state): string => state.csvCard,
+
+
   },
 
 

@@ -1,5 +1,5 @@
 <template>
-    <button @click="navigateTo" :style="{gap:gap}" class="backBtn w-[240px] h-[55px] bg-[#606868] rounded-[48px] text-white font-semibold text-[18px] flex justify-center items-center">
+    <button @click="navigateTo" :style="{gap:gap}" class="backBtn w-[280px] h-[55px] bg-[#606868] rounded-[48px] text-white font-semibold text-[18px] flex justify-center items-center">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M16.5 12L7.5 12" stroke="white" stroke-linecap="round"/>
             <path d="M10.5 9L7.5 12L10.5 15" stroke="white" stroke-linecap="round"/>
