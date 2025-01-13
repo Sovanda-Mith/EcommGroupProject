@@ -25,7 +25,8 @@ const checkCoupon = (coupon: string): void => {
   console.log(checkCouponInput(coupon))
   if (checkCouponInput(coupon)) {
     console.log('Coupon is valid')
-    alert('Coupon is valid')
+    // alert('Coupon is valid')
+    showPopup()
   } else {
     console.log('Coupon is invalid')
     alert('Coupon is invalid')
@@ -37,13 +38,22 @@ watch(selectedPaymentMethod, (newValue) => {
     paymentStore.setPayment(PaymentMethod.CreditCard)
   } else if (newValue === 'flexRadioCashOnDelivery') {
     paymentStore.setPayment(PaymentMethod.CashOnDelivery)
+
   }
 })
+
+const showPopup = () => {
+  const popup = document.getElementById('couponPopup')
+  const blurPage=document.getElementById('paymentPage')
+
+  blurPage?.classList.add('paymentPage-blur')
+  popup?.classList.add('open-popup')
+}
 </script>
 <template>
   <headerCart title="Checking Out" />
   <div class="breadcrumb">
-    <span>Cart</span>
+    <span class="inactive">Cart</span>
     <span class="separator">></span>
     <span class="active">Shipping Information</span>
     <span class="separator">></span>
@@ -152,7 +162,7 @@ watch(selectedPaymentMethod, (newValue) => {
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" v-model="selectedPaymentMethod" value="flexRadioCashOnDelivery"
-            name="flexRadioPayment" id="flexRadioCashOnDelivery" checked />
+            name="flexRadioPayment" id="flexRadioCashOnDelivery" />
           <label class="form-check-label" for="flexRadioDefault2">
             <p class="paymentText">Cash on delivery</p>
           </label>
@@ -162,7 +172,7 @@ watch(selectedPaymentMethod, (newValue) => {
         :total="cartProductStore.getTotalCost" />
       <div class="flex flex-col gap-[20px] justify-center items-center">
         <!-- forwardBtn -->
-        <forwardBtnCart class="btnText" to="/checkout/payment" btnText="Continue to Payment" width="350px" height="70px"
+        <forwardBtnCart class="btnText" to="/checkout/payment" btnText="Continue forward" width="350px" height="70px"
           gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
         <!-- backBtn -->
         <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/checkout/cart"></backBtnCart>
@@ -210,4 +220,28 @@ watch(selectedPaymentMethod, (newValue) => {
 .SFfont {
   font-family: 'SF-Pro', sans-serif;
 }
+#closePopup:hover {
+  background-color: #82c89f;
+  color: white;
+}
+
+.popup {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  transition:
+    transform 0.4s,
+    top 0.4s;
+}
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.paymentPage-blur {
+  opacity: 35%;
+}
 </style>
+

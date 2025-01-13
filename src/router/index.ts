@@ -77,34 +77,45 @@ const router = createRouter({
           name:'ControllerPage',
           component: () => import('../views/category/ControllerPage.vue'),
         },
-        // {
-        //   path:'Others',
-        //   name:'OthersPage',
-        //   component: () => import('../views/OthersPage.vue'),
-        // }
+        {
+          path:'Others',
+          name:'OthersPage',
+          component: () => import('../views/category/OtherPage.vue'),
+        }
 
       ],
-      meta: { requiresAuth: true },
-    },
-
-    {
-      path: '/cart',
-      name: 'CartPage',
-      component: () => import('../views/checkout/CartPage.vue'),
       meta: { requiresAuth: true },
     },
     {
       path: '/checkout',
       name: 'CheckoutPage',
       component: () => import('../views/checkout/CheckoutPage.vue'),
+      redirect: '/checkout/cart',
+      children: [
+        {
+          path: 'cart',
+          name: 'CartPage',
+          component: () => import('../views/checkout/CartPage.vue'),
+        },
+        {
+          path: 'orderInfo',
+          name: 'OrderInfo',
+          component: () => import('../views/checkout/orderInfo.vue'),
+        },
+        {
+          path: 'payment',
+          name: 'PaymentPage',
+          component: () => import('../views/checkout/PaymentPage.vue'),
+        },
+        {
+          path: 'cashOnSucess',
+          name: 'CashOnSucess',
+          component: () => import('../views/checkout/CashOnSucess.vue'),
+        },
+      ],
       meta: { requiresAuth: true },
     },
-    {
-      path: '/payment',
-      name: 'PaymentPage',
-      component: () => import('../views/checkout/PaymentPage.vue'),
-      meta: { requiresAuth: true },
-    }
+
   ],
 });
 

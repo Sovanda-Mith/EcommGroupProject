@@ -20,10 +20,19 @@
             </button>
         </div>
         <div class="interFont absolute left-[710px] w-[100px] h-[55px] bg-[#CBD7D1] flex justify-center items-center text-black rounded-[70px] text-[24px]">{{ discount }}%</div>
-        <div class="absolute left-[980px] flex gap-[15px]">
-          <div class="interFont text-gray-500 text-[24px] line-through">${{ beforeDiscount }}</div>
-          <div class="interFont text-black text-[24px]">${{ finalPrice }}</div>
+        <!-- subtotal -->
+        <div v-if="isDiscount">
+          <div class="absolute left-[980px] flex gap-[15px]">
+            <div class="interFont text-gray-500 text-[24px] line-through">${{ beforeDiscount }}</div>
+            <div class="interFont text-black text-[24px]">${{ finalPrice }}</div>
+          </div>
         </div>
+        <div v-if="!isDiscount">
+          <div class="absolute left-[1050px] flex gap-[15px]">
+            <div class="interFont text-black text-[24px]">${{ finalPrice }}</div>
+          </div>
+        </div>
+
     </div>
 </template>
 <script lang="ts">
@@ -43,6 +52,14 @@ export default {
     quantity: Number,
     product: Object,
   },
+  computed: {
+    isDiscount() {
+      if (this.product && typeof this.product === "object") { //check type
+        return cartProductStore.isDiscount(this.product as productState);
+      }
+      return false;
+    },
+  },
   methods: {
     increaseQuantity() {
       if (this.product && typeof this.product === "object") { //check type
@@ -59,7 +76,8 @@ export default {
       } else {
         console.error("Product is undefined or not a valid object");
       }
-    }
+    },
+
   },
 };
 
@@ -81,7 +99,7 @@ export default {
 .img{
     width: 100px;
     height: 100px;
-    border: 1px solid black;
+    object-fit: scale-down;
     border-radius: 15px;
 }
 .itemContainer{

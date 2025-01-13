@@ -39,6 +39,16 @@ export const useCartProductStore = defineStore("cartProduct", {
         this.cartProducts[index].quantity = newQuantity;
       }
     },
+    isDiscount(product: productState) {
+      const index = this.cartProducts.findIndex(p => p.product.productId === product.productId);
+      if (index !== -1) {
+        if(this.cartProducts[index].product.discount>0){
+          return true;
+        }else{
+          return false;
+        }
+      }
+    },
   },
   getters: {
     allCartProducts: (state) => state.cartProducts,
@@ -62,13 +72,14 @@ export const useCartProductStore = defineStore("cartProduct", {
       return state.cartProducts.reduce((total, cartProduct) => {
         const beforeDiscount = cartProduct.product.price * cartProduct.quantity;
         const afterDiscount=beforeDiscount * (1 - (cartProduct.product.discount ?? 0) / 100);
-        return total + Math.round(afterDiscount*100)/100;
+        return Math.round(total*100)/100 + Math.round(afterDiscount*100)/100;
       },0); // Initialize total to 0 to make it a return type number
     },
 
     getShippingCost: () => 10,
     getTotalCost():number{
       return Math.round((this.subtotalCartValue + this.getShippingCost)*100)/100;
-    }
+    },
+    
   }
 })

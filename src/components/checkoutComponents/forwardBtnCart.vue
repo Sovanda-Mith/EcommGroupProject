@@ -32,18 +32,30 @@
   </button>
 </template>
 <script lang="ts">
-import { usePaymentStore } from '@/stores/payment';
+import { usePaymentStore,PaymentMethod } from '@/stores/payment';
 
-const paymentStore = usePaymentStore();
 
 export default {
   name: 'forwardBtnCart',
   props: ['btnText', 'width', 'height', 'padleft', 'padright', 'gap',"to","type","onclick"],
   methods: {
     navigateTo() {
-      if(this.to){
-        this.$router.push(this.to)
+      // if(this.to){
+      //   this.$router.push(this.to)
+      // }
+      const paymentStore = usePaymentStore();
+
+      if (paymentStore.payment === PaymentMethod.CashOnDelivery) {
+        this.$router.push('/checkout/cashOnSucess');
+      }else if(paymentStore.payment === PaymentMethod.none){
+        alert('Please select a payment method')
+        this.$router.push('/checkout/orderInfo');
+      } else if (this.to) {
+        this.$router.push(this.to);
+      } else {
+        console.warn('No "to" prop provided for navigation.');
       }
+
       console.log('Payment Store State:', {
         country : paymentStore.country,
         firstname: paymentStore.firstname,

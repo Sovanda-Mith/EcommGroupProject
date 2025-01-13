@@ -6,6 +6,13 @@ import PopupComp from '@/components/checkoutComponents/popupComp.vue';
 import '@/assets/main.css';
 import completeImg from '@/assets/cartImg/completeImg.jpeg';
 
+const hidePopup = () => {
+  const popup = document.getElementById('couponPopup')
+  const blurPage=document.getElementById('paymentPage')
+
+  blurPage?.classList.remove('paymentPage-blur')
+  popup?.classList.remove('open-popup')
+}
 </script>
 
 <template>
@@ -19,6 +26,22 @@ import completeImg from '@/assets/cartImg/completeImg.jpeg';
   </div>
   <PopupComp :img="completeImg" header="Thanks you for your purchase" subtext="Your order has been placed successfully." blurContainer="paymentPage" blurClass="paymentPage-blur"></PopupComp>
 
+  <div
+    id="couponPopup"
+    class="popup bg-white w-[500px] h-[400px] gap-4 border-solid border-[1px] border-black rounded-[30px] flex flex-col justify-center items-center"
+    style="font-family: 'SF-Pro', sans-serif; font-weight: 300"
+  >
+    <img src="@/assets/cartImg/coupon.png" alt="coupon" class="w-[150px]">
+    <h2 class="text-[28px] font-bold">Coupon has been applied</h2>
+    <p class="text-[20px]">You got a great deal</p>
+    <button
+      id="closePopup"
+      class="w-[150px] h-[50px] border-solid border-[1px] border-black rounded-[30px] font-bold text-[20px]"
+      @click="hidePopup()"
+    >
+      Okay, Got it
+    </button>
+  </div>
 
 </template>
 <style scoped>
