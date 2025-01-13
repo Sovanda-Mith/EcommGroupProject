@@ -21,7 +21,7 @@ const showPopup = () => {
 <template>
   <headerCart title="Payment" />
   <div class="breadcrumb">
-    <span>Cart</span>
+    <span class="inactive">Cart</span>
     <span class="separator">></span>
     <span class="inactive">Shipping Information</span>
     <span class="separator">></span>

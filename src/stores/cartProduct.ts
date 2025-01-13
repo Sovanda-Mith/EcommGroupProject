@@ -39,6 +39,16 @@ export const useCartProductStore = defineStore("cartProduct", {
         this.cartProducts[index].quantity = newQuantity;
       }
     },
+    isDiscount(product: productState) {
+      const index = this.cartProducts.findIndex(p => p.product.productId === product.productId);
+      if (index !== -1) {
+        if(this.cartProducts[index].product.discount>0){
+          return true;
+        }else{
+          return false;
+        }
+      }
+    },
   },
   getters: {
     allCartProducts: (state) => state.cartProducts,
@@ -69,6 +79,7 @@ export const useCartProductStore = defineStore("cartProduct", {
     getShippingCost: () => 10,
     getTotalCost():number{
       return Math.round((this.subtotalCartValue + this.getShippingCost)*100)/100;
-    }
+    },
+
   }
 })

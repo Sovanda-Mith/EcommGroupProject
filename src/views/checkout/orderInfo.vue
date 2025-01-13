@@ -25,7 +25,8 @@ const checkCoupon = (coupon: string): void => {
   console.log(checkCouponInput(coupon))
   if (checkCouponInput(coupon)) {
     console.log('Coupon is valid')
-    alert('Coupon is valid')
+    // alert('Coupon is valid')
+    showPopup()
   } else {
     console.log('Coupon is invalid')
     alert('Coupon is invalid')
@@ -39,11 +40,19 @@ watch(selectedPaymentMethod, (newValue) => {
     paymentStore.setPayment(PaymentMethod.CashOnDelivery)
   }
 })
+
+const showPopup = () => {
+  const popup = document.getElementById('couponPopup')
+  const blurPage=document.getElementById('paymentPage')
+
+  blurPage?.classList.add('paymentPage-blur')
+  popup?.classList.add('open-popup')
+}
 </script>
 <template>
   <headerCart title="Checking Out" />
   <div class="breadcrumb">
-    <span>Cart</span>
+    <span class="inactive">Cart</span>
     <span class="separator">></span>
     <span class="active">Shipping Information</span>
     <span class="separator">></span>
@@ -210,4 +219,28 @@ watch(selectedPaymentMethod, (newValue) => {
 .SFfont {
   font-family: 'SF-Pro', sans-serif;
 }
+#closePopup:hover {
+  background-color: #82c89f;
+  color: white;
+}
+
+.popup {
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.1);
+  visibility: hidden;
+  transition:
+    transform 0.4s,
+    top 0.4s;
+}
+.open-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.paymentPage-blur {
+  opacity: 35%;
+}
 </style>
+

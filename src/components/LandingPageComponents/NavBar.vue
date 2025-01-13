@@ -70,7 +70,7 @@ p {
   overflow: hidden;
   color: rgb(56, 55, 55);
   transition: 0.3s;
-  font-weight: bold;
+  font-weight: lighter;
   text-transform: uppercase;
 }
 
