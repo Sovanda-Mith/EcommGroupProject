@@ -23,16 +23,22 @@
         <p class="hover-effect">Others</p>
       </router-link>
     </nav>
-    <div class="flex h-[80px] items-center justify-evenly w-1/5">
-      <ButtonIcon icon="../../src/assets/landPageImg/search-svgrepo-com.svg" text="Search" />
-      <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
-      <ButtonIcon icon="../../src/assets/landPageImg/cart-plus-svgrepo-com.svg" text="Cart" />
-    </div>
+    <div class="flex h-[80px] items-center justify-between w-full px-4">
+  <div class="search-box flex items-center">
+    <input type="text" v-model="searchQuery" placeholder="Search..." @keyup.enter="search" class="border rounded px-2 py-1">
+    <button @click="search" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
+  </div>
+  <div class="flex items-center space-x-4">
+    <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
+    <ButtonIcon icon="../../src/assets/landPageImg/cart-plus-svgrepo-com.svg" text="Cart" />
+  </div>
+</div>
   </div>
 </template>
 
 <script lang="ts">
 import ButtonIcon from './ButtonIcon.vue'
+import { useRouter } from 'vue-router';
 import { defineComponent, ref, onMounted } from 'vue'
 
 export default defineComponent({
@@ -41,6 +47,8 @@ export default defineComponent({
     ButtonIcon,
   },
   setup() {
+    const searchQuery = ref('');
+    const router = useRouter();
     const authText = ref('Login') // Default text
 
     // Check for 'name' in localStorage on component mount
@@ -50,9 +58,14 @@ export default defineComponent({
         authText.value = 'Logged'
       }
     })
+    const search = () => {
+      router.push({ name: 'SearchResults', query: { q: searchQuery.value } });
+    };
 
     return {
       authText,
+      searchQuery,
+      search
     }
   },
 })

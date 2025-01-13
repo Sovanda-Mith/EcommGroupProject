@@ -41,6 +41,10 @@ const router = createRouter({
       name: 'Home',
       component: () => import('../views/LandingPage.vue'),
     },
+    {
+      path: '/search',
+      name: 'SearchResults',
+      component: () => import('../components/ProductCatalogComponent/SearchResults.vue') },
 
     {
       path: '/category',
@@ -73,55 +77,34 @@ const router = createRouter({
           name:'ControllerPage',
           component: () => import('../views/category/ControllerPage.vue'),
         },
-        {
-          path:'Discount',
-          name:'discountPage',
-          component: () => import('../views/category/discountPage.vue'),
-        },
-        {
-          path:'Budget',
-          name:'BudgetPage',
-          component: () => import('../views/category/BudgetProductPage.vue'),
-        },
-        {
-          path:'Others',
-          name:'OtherPage',
-          component: () => import('../views/category/OtherPage.vue'),
-        },
+        // {
+        //   path:'Others',
+        //   name:'OthersPage',
+        //   component: () => import('../views/OthersPage.vue'),
+        // }
 
       ],
       meta: { requiresAuth: true },
     },
 
-    //===============================================>> Checkout
+    {
+      path: '/cart',
+      name: 'CartPage',
+      component: () => import('../views/checkout/CartPage.vue'),
+      meta: { requiresAuth: true },
+    },
     {
       path: '/checkout',
       name: 'CheckoutPage',
       component: () => import('../views/checkout/CheckoutPage.vue'),
-      redirect: '/checkout/cart',
-      children: [
-        {
-          path: 'cart',
-          name: 'CartPage',
-          component: () => import('../views/checkout/CartPage.vue'),
-
-        },
-        {
-          path: 'orderInfo',
-          name: 'OrderInfo',
-          component: () => import('../views/checkout/orderInfo.vue'),
-
-        },
-        {
-          path: 'payment',
-          name: 'PaymentPage',
-          component: () => import('../views/checkout/PaymentPage.vue'),
-
-        },
-      ],
       meta: { requiresAuth: true },
     },
-
+    {
+      path: '/payment',
+      name: 'PaymentPage',
+      component: () => import('../views/checkout/PaymentPage.vue'),
+      meta: { requiresAuth: true },
+    }
   ],
 });
 
