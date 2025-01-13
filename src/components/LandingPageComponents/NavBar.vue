@@ -1,6 +1,50 @@
 <template>
   <div class="flex justify-between items-center bg-white h-[80px] font-rammetto">
-    <nav class="flex justify-evenly items-center h-[80px] w-1/2">
+    <nav class="lg:hidden md:flex sm:flex">
+      <DropdownMenu>
+        <DropdownMenuTrigger>
+          <img src="../../assets/landPageImg/logo_dark.png" alt="logo" class="w-[80px]" />
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <router-link to="/">
+            <DropdownMenuLabel class="font-semibold text-[18px]">Home</DropdownMenuLabel>
+          </router-link>
+          <DropdownMenuLabel class="font-semibold text-[18px]">Categories</DropdownMenuLabel>
+          <DropdownMenuSeparator />
+          <router-link to="/category/Keyboard">
+            <p class="hover-effect">
+              <DropdownMenuItem>Keyboard</DropdownMenuItem>
+            </p>
+          </router-link>
+          <router-link to="/category/Mouse">
+            <p class="hover-effect">
+              <DropdownMenuItem>Mouse</DropdownMenuItem>
+            </p>
+          </router-link>
+          <router-link to="/category/Monitor">
+            <p class="hover-effect">
+              <DropdownMenuItem>Monitor</DropdownMenuItem>
+            </p>
+          </router-link>
+          <router-link to="/category/Audio">
+            <p class="hover-effect">
+              <DropdownMenuItem>Audio</DropdownMenuItem>
+            </p>
+          </router-link>
+          <router-link to="/category/Controller">
+            <p class="hover-effect">
+              <DropdownMenuItem>Controller</DropdownMenuItem>
+            </p>
+          </router-link>
+          <router-link to="/category/Others">
+            <p class="hover-effect">
+              <DropdownMenuItem>Others</DropdownMenuItem>
+            </p>
+          </router-link>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </nav>
+    <nav class="lg:flex justify-evenly items-center h-[80px] w-2/3 md:hidden">
       <router-link to="/">
         <img src="../../assets/landPageImg/logo_dark.png" alt="logo" class="w-[80px]" />
       </router-link>
@@ -25,8 +69,16 @@
     </nav>
     <div class="flex h-[80px] items-center justify-end w-full px-4">
       <div class="search-box flex items-center w-[30%] pr-10">
-        <input type="text" v-model="searchQuery" placeholder="Search..." @keyup.enter="search" class="border rounded px-2 py-1 searchText">
-        <button @click="search" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">Search</button>
+        <input
+          type="text"
+          v-model="searchQuery"
+          placeholder="Search..."
+          @keyup.enter="search"
+          class="border rounded px-2 py-1 searchText"
+        />
+        <button @click="search" class="ml-2 px-4 py-1 bg-blue-500 text-white rounded">
+          Search
+        </button>
       </div>
       <div class="flex items-center space-x-4">
         <ButtonIcon icon="../../src/assets/landPageImg/user-3-svgrepo-com.svg" :text="authText" />
@@ -38,17 +90,31 @@
 
 <script lang="ts">
 import ButtonIcon from './ButtonIcon.vue'
-import { useRouter } from 'vue-router';
+import { useRouter } from 'vue-router'
 import { defineComponent, ref, onMounted } from 'vue'
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+} from '../ui/dropdown-menu'
 
 export default defineComponent({
   name: 'NavBar',
   components: {
     ButtonIcon,
+    DropdownMenu,
+    DropdownMenuTrigger,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuSeparator,
+    DropdownMenuLabel,
   },
   setup() {
-    const searchQuery = ref('');
-    const router = useRouter();
+    const searchQuery = ref('')
+    const router = useRouter()
     const authText = ref('Login') // Default text
 
     // Check for 'name' in localStorage on component mount
@@ -59,13 +125,13 @@ export default defineComponent({
       }
     })
     const search = () => {
-      router.push({ name: 'SearchResults', query: { q: searchQuery.value } });
-    };
+      router.push({ name: 'SearchResults', query: { q: searchQuery.value } })
+    }
 
     return {
       authText,
       searchQuery,
-      search
+      search,
     }
   },
 })
@@ -77,10 +143,10 @@ p {
   font-family: 'Rammetto One', sans-serif;
 }
 @font-face {
-    font-family: 'SF-Pro';
-    src: url('../assets/fonts/SF-Pro.ttf') format('SF-Pro');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'SF-Pro';
+  src: url('../assets/fonts/SF-Pro.ttf') format('SF-Pro');
+  font-weight: normal;
+  font-style: normal;
 }
 .hover-effect {
   padding: 0 0.5em 0.25em;
@@ -110,7 +176,7 @@ p {
   scale: 1;
   transition: 0.3s;
 }
-.searchText{
+.searchText {
   font-family: 'SF-Pro', sans-serif;
   font-weight: 800;
   font-size: large;

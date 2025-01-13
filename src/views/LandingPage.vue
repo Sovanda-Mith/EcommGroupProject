@@ -14,20 +14,32 @@
         @click="handlePanelChange"
       />
       <div class="flex w-full" v-if="togglePanel">
-        <img src="../assets/landPageImg/monitorpanel1.avif" alt="Monitor Panel 1" class="w-1/3" />
-        <img src="../assets/landPageImg/monitorpanel2.avif" alt="Monitor Panel 2" class="w-1/3" />
-        <img src="../assets/landPageImg/monitorpanel3.avif" alt="Monitor Panel 3" class="w-1/3" />
+        <img
+          src="../assets/landPageImg/monitorpanel1.avif"
+          alt="Monitor Panel 1"
+          class="w-1/3 md:h-[400px] lg:h-[700px]"
+        />
+        <img
+          src="../assets/landPageImg/monitorpanel2.avif"
+          alt="Monitor Panel 2"
+          class="w-1/3 md:h-[400px] lg:h-[700px]"
+        />
+        <img
+          src="../assets/landPageImg/monitorpanel3.avif"
+          alt="Monitor Panel 3"
+          class="w-1/3 md:h-[400px] lg:h-[700px]"
+        />
       </div>
       <div class="flex w-full" v-else>
         <img
           src="../assets/landPageImg/mechanicalkeyboard1.avif"
           alt="mechanicalkeyboard1"
-          class="w-1/2"
+          class="w-1/2 md:h-[400px] lg:h-[700px]"
         />
         <img
           src="../assets/landPageImg/mechanicalkeyboard2.avif"
           alt="mechanicalkeyboard2"
-          class="w-1/2"
+          class="w-1/2 md:h-[400px] lg:h-[700px]"
         />
       </div>
       <img
@@ -39,7 +51,7 @@
     </div>
 
     <!-- Shop Now Card -->
-    <div class="flex justify-evenly mt-5">
+    <div class="flex justify-evenly mt-5 md:space-x-4">
       <ShopNowCard
         img="../../src/assets/landPageImg/budgetkeyboard.avif"
         title="Best Budget Products"
@@ -56,12 +68,13 @@
         img="../../src/assets/landPageImg/streamdeck.avif"
         title="Hottest Sell!!!"
         description="A must have product for every streamer"
+        to="/category/streamdeck"
       />
     </div>
 
     <!--- Shop By Brand -->
     <div class="flex flex-col space-y-4 ml-4 mr-4">
-      <h1 class="text-[64px] font-semibold my-4">Shop by Brands</h1>
+      <h1 class="lg:text-[64px] font-semibold my-4 md:text-[46px]">Shop by Brands</h1>
       <div class="grid grid-cols-3 h-1/2 gap-x-3">
         <img
           src="../assets/landPageImg/applebrand.jpg"

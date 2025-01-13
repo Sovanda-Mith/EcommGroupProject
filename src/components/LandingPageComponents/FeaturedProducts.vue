@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col items-center mt-10 space-y-5">
-    <h1 class="text-[64px] font-semibold">Featured Products</h1>
-    <p class="text-[32px]">Products that we think you need</p>
+    <h1 class="lg:text-[64px] font-semibold md:text-[46px]">Featured Products</h1>
+    <p class="lg:text-[32px] md:text-[24px]">Products that we think you need</p>
     <div class="overflow-x-auto container-snap">
       <div class="flex space-x-10">
         <FeaturedCard
