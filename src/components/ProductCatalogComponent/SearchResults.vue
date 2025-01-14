@@ -8,17 +8,48 @@
     <div class="search-results w-3/4 p-4">
       <h1 class="text-2xl font-bold mb-4">Search Results for "{{ query }}"</h1>
       <div v-if="filteredProducts.length">
-        <ProductGrid :products="filteredProducts" />
+        <ProductGrid :products="paginatedProducts" />
+        <div class="mt-6 flex justify-between items-center">
+          <button
+            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+            :disabled="currentPage === 1"
+            @click="prevPage"
+          >
+            Previous
+          </button>
+          <div class="flex gap-2">
+            <button
+              v-for="page in totalPages"
+              :key="page"
+              @click="goToPage(page)"
+              :class="[
+                'w-8 h-8 rounded-full',
+                currentPage === page ? 'bg-blue-600 text-white' : 'bg-gray-300 text-gray-700 hover:bg-gray-400'
+              ]"
+            >
+              {{ page }}
+            </button>
+          </div>
+          <button
+            class="bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400"
+            :disabled="currentPage === totalPages"
+            @click="nextPage"
+          >
+            Next
+          </button>
+        </div>
+        <div class="mt-4 text-center">
+          Page {{ currentPage }} of {{ totalPages }}
+        </div>
       </div>
       <p v-else class="text-red-600 text-lg">No products found for "{{ query }}"</p>
     </div>
   </div>
   <PopupComp :img="cartImg" header="item has been added to your cart" subtext="Click here to continue shopping" blurContainer="categoryPage" blurClass="categoryPage-blur" />
-
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { ref, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import NavBar from '@/components/LandingPageComponents/NavBar.vue';
 import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue';
@@ -31,29 +62,34 @@ import cartImg from '@/assets/landPage2Img/addToCart.png';
 const route = useRoute();
 const query = computed<string>(() => (route.query.q as string) || '');
 const productStore = useProductStore();
-import { type productState } from '@/stores/product';
 
-type Product = productState;
+const filteredProducts = computed(() => {
+  return productStore.products.filter(product => product.category.toLowerCase().includes(query.value.toLowerCase()));
+});
 
-const allProducts: Product[] = productStore.allProducts;
+const currentPage = ref(1);
+const itemsPerPage = 8;
 
-const filteredProducts = computed<Product[]>(() =>
-  allProducts.filter((product) =>
-    product.name.toLowerCase().includes(query.value.toLowerCase()) ||
-    product.category.toLowerCase().includes(query.value.toLowerCase())
-  )
-);
+const totalPages = computed(() => Math.ceil(filteredProducts.value.length / itemsPerPage));
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage;
+  return filteredProducts.value.slice(start, start + itemsPerPage);
+});
+
+const prevPage = () => {
+  if (currentPage.value > 1) currentPage.value--;
+};
+
+const nextPage = () => {
+  if (currentPage.value < totalPages.value) currentPage.value++;
+};
+
+const goToPage = (page: number) => {
+  currentPage.value = page;
+};
 </script>
 
-
 <style scoped>
-.search-results {
-  padding: 20px;
-}
-img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  max-height: 150px;
-}
+/* Add any additional styles here */
 </style>
