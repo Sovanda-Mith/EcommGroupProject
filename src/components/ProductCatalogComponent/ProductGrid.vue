@@ -4,17 +4,11 @@
     <div
       v-for="product in products"
       :key="product.productId"
+      @click="goToProductDetail(product.productId)"
       class="bg-white p-4 border rounded-[20px] shadow-sm productGrid">
       <div v-if="product.discount" class="flag-discount">
         -{{ product.discount }}%
       </div>
-      <!-- <span v-if="product.tag"
-      class="[
-          'text-xs px-2 py-1 rounded uppercase font-bold',
-          product.tag === 'HOT' ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'
-      ]">
-        {{ product.tag }}
-      </span> -->
       <img
         :src="product.image"
         :alt="product.name"
@@ -89,8 +83,11 @@
 <script setup lang="ts">
 import {type productState } from '@/stores/product';
 import { useCartProductStore } from '@/stores/cartProduct';
+import { Goal } from 'lucide-vue-next';
+import { useRouter } from 'vue-router';
 
 const cartProductStore = useCartProductStore();
+const router = useRouter();
 defineProps<{
   products: productState[];
 }>();
@@ -103,10 +100,14 @@ function addToCart(product: productState) {
   //for popup to activate
   const popup = document.getElementById('popup')
   const categoryPage = document.getElementById('categoryPage')
-  
+
 
   popup?.classList.add('open-popup')
   categoryPage?.classList.add('categoryPage-blur')
+}
+
+function goToProductDetail(productId: number) {
+  router.push(`/productDetail/${productId}`);
 }
 </script>
 
