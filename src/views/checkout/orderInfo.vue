@@ -162,7 +162,7 @@ const showPopup = () => {
         </div>
         <div class="form-check">
           <input class="form-check-input" type="radio" v-model="selectedPaymentMethod" value="flexRadioCashOnDelivery"
-            name="flexRadioPayment" id="flexRadioCashOnDelivery" />
+            name="flexRadioPayment" id="flexRadioCashOnDelivery"/>
           <label class="form-check-label" for="flexRadioDefault2">
             <p class="paymentText">Cash on delivery</p>
           </label>
