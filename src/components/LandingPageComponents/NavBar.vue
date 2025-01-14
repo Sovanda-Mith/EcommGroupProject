@@ -1,9 +1,13 @@
 <template>
   <div class="flex justify-between items-center bg-white h-[80px] font-rammetto">
-    <nav class="lg:hidden md:flex sm:flex">
+    <nav class="lg:hidden md:flex sm:flex ml-4">
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <img src="../../assets/landPageImg/logo_dark.png" alt="logo" class="w-[80px]" />
+          <img
+            src="../../assets/landPageImg/menu-burger-horizontal-svgrepo-com.svg"
+            alt="menu icon"
+            class="w-[60px]"
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <router-link to="/">

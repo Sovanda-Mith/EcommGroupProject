@@ -1,7 +1,9 @@
 <template>
   <footer class="bg-[#606868] px-5 py-5 text-white grid grid-cols-3">
     <div class="space-y-2 text-[18px]">
-      <p>Your Account</p>
+      <router-link to="/auth/profile">
+        <p class="hover:underline">Your Account</p>
+      </router-link>
       <p>Your Orders</p>
       <p>Your lists</p>
       <p>Browsing History</p>
