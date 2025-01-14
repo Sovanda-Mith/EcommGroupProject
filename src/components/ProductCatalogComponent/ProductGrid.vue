@@ -8,13 +8,6 @@
       <div v-if="product.discount" class="flag-discount">
         -{{ product.discount }}%
       </div>
-      <!-- <span v-if="product.tag"
-      class="[
-          'text-xs px-2 py-1 rounded uppercase font-bold',
-          product.tag === 'HOT' ? 'bg-red-500 text-white' : 'bg-blue-500 text-white'
-      ]">
-        {{ product.tag }}
-      </span> -->
       <img
         :src="product.image"
         :alt="product.name"
@@ -103,7 +96,7 @@ function addToCart(product: productState) {
   //for popup to activate
   const popup = document.getElementById('popup')
   const categoryPage = document.getElementById('categoryPage')
-  
+
 
   popup?.classList.add('open-popup')
   categoryPage?.classList.add('categoryPage-blur')
