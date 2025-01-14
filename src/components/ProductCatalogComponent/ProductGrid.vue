@@ -4,6 +4,7 @@
     <div
       v-for="product in products"
       :key="product.productId"
+      @click="goToProductDetail(product.productId)"
       class="bg-white p-4 border rounded-[20px] shadow-sm productGrid">
       <div v-if="product.discount" class="flag-discount">
         -{{ product.discount }}%
@@ -82,8 +83,11 @@
 <script setup lang="ts">
 import {type productState } from '@/stores/product';
 import { useCartProductStore } from '@/stores/cartProduct';
+import { Goal } from 'lucide-vue-next';
+import { useRouter } from 'vue-router';
 
 const cartProductStore = useCartProductStore();
+const router = useRouter();
 defineProps<{
   products: productState[];
 }>();
@@ -100,6 +104,10 @@ function addToCart(product: productState) {
 
   popup?.classList.add('open-popup')
   categoryPage?.classList.add('categoryPage-blur')
+}
+
+function goToProductDetail(productId: number) {
+  router.push(`/productDetail/${productId}`);
 }
 </script>
 

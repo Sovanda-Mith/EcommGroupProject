@@ -155,6 +155,11 @@ const router = createRouter({
       name: 'CustomerServicePage',
       component: () => import('../views/CustomerServicePage.vue'),
     },
+    {
+      path: '/productDetail/:id',
+      name: 'ProductDetailPage',
+      component: () => import('../views/ProductDetailView/ProductDetailPage.vue'),
+    },
   ],
 })
 
