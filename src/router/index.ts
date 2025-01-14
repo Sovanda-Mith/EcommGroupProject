@@ -83,21 +83,20 @@ const router = createRouter({
           component: () => import('../views/category/OtherPage.vue'),
         },
         {
-          path:'Discount',
-          name:'DiscountPage',
-          component:()=>import('../views/category/discountPage.vue')
+          path: 'Discount',
+          name: 'DiscountPage',
+          component: () => import('../views/category/discountPage.vue'),
         },
         {
-          path:'Budget',
-          name:'BudgetPage',
-          component:()=>import('../views/category/BudgetProductPage.vue')
+          path: 'Budget',
+          name: 'BudgetPage',
+          component: () => import('../views/category/BudgetProductPage.vue'),
         },
         {
-          path:'Hot',
-          name:'HotPage',
-          component:()=>import('../views/category/HotProductPage.vue')
-        }
-
+          path: 'Hot',
+          name: 'HotPage',
+          component: () => import('../views/category/HotProductPage.vue'),
+        },
       ],
       meta: { requiresAuth: true },
     },
@@ -146,14 +145,9 @@ const router = createRouter({
       component: () => import('../views/BrowsingHistoryPage.vue'),
     },
     {
-      path: '/seller-register',
+      path: '/seller-requirement',
       name: 'SellerRegisterPage',
-      component: () => import('../views/BrowsingHistoryPage.vue'),
-    },
-    {
-      path: '/customer-service',
-      name: 'CustomerServicePage',
-      component: () => import('../views/CustomerServicePage.vue'),
+      component: () => import('../views/SellerRegisterPage.vue'),
     },
   ],
 })
