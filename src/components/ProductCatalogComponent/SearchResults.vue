@@ -64,7 +64,10 @@ const query = computed<string>(() => (route.query.q as string) || '');
 const productStore = useProductStore();
 
 const filteredProducts = computed(() => {
-  return productStore.products.filter(product => product.category.toLowerCase().includes(query.value.toLowerCase()));
+  return productStore.products.filter(product => {
+    const lowerCaseQuery = query.value.toLowerCase();
+    return product.category.toLowerCase().includes(lowerCaseQuery) || product.name.toLowerCase().includes(lowerCaseQuery);
+  });
 });
 
 const currentPage = ref(1);
