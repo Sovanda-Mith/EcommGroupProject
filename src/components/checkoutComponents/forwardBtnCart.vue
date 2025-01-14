@@ -33,6 +33,7 @@
 </template>
 <script lang="ts">
 import { usePaymentStore,PaymentMethod } from '@/stores/payment';
+import { useCartProductStore } from '@/stores/cartProduct';
 
 
 export default {
@@ -44,17 +45,42 @@ export default {
       //   this.$router.push(this.to)
       // }
       const paymentStore = usePaymentStore();
+      const cartProductStore = useCartProductStore();
+      const currentUrl = this.$route?.path || window.location.pathname;
+      let allFilled=true
 
-      if (paymentStore.payment === PaymentMethod.CashOnDelivery) {
-        this.$router.push('/checkout/cashOnSucess');
-      }else if(paymentStore.payment === PaymentMethod.none){
-        alert('Please select a payment method')
-        this.$router.push('/checkout/orderInfo');
-      } else if (this.to) {
-        this.$router.push(this.to);
-      } else {
-        console.warn('No "to" prop provided for navigation.');
+      if(currentUrl==='/checkout/orderInfo'){
+        //check for all info are filled
+        if(!paymentStore.country || !paymentStore.firstname || !paymentStore.lastname || !paymentStore.address || !paymentStore.city || !paymentStore.postalcode || !paymentStore.email || !paymentStore.phonenumber){
+          alert('Please fill all the information')
+          allFilled=false
+        }
+        //check for payment method is selected
+        if (paymentStore.payment === PaymentMethod.CashOnDelivery && allFilled) {
+          this.$router.push('/checkout/cashOnSucess');
+        }else if(paymentStore.payment === PaymentMethod.none){
+          alert('Please select a payment method')
+        } else if (this.to && allFilled) {
+          this.$router.push(this.to);
+        } else {
+          console.warn('No "to" prop provided for navigation.');
+        }
+      }else if(currentUrl==='/checkout/cart'){
+        if(cartProductStore.allCartProducts.length==0){
+          alert('Your cart is empty!!! Please add some products')
+
+          this.$router.push('/')
+        }else if(cartProductStore.allCartProducts.length>0 && this.to){
+          this.$router.push(this.to)
+        }
+        console.log(cartProductStore.allCartProducts.length);
+      }else{
+        if(this.to){
+          this.$router.push(this.to)
+        }
       }
+
+
 
       console.log('Payment Store State:', {
         country : paymentStore.country,

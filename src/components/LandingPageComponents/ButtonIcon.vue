@@ -5,7 +5,7 @@
         <img :src="icon" :alt="text" class="ml-2 w-5" />
     </div>
   </router-link>
-  <router-link to="/checkout/Cart" v-else-if="text === 'Cart'">
+  <router-link to="/checkout/cart" v-else-if="text === 'Cart'">
     <div class="flex">
         <p>{{ text }}</p>
         <img :src="icon" :alt="text" class="ml-2 w-5" />

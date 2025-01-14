@@ -81,7 +81,17 @@ const router = createRouter({
           path:'Others',
           name:'OthersPage',
           component: () => import('../views/category/OtherPage.vue'),
-        }
+        },
+        {
+          path:'Discount',
+          name:'DiscountPage',
+          component: () => import('../views/category/discountPage.vue'),
+        },
+        {
+          path:'Budget',
+          name:'BudgetPage',
+          component: () => import('../views/category/BudgetProductPage.vue'),
+        },
 
       ],
       meta: { requiresAuth: true },

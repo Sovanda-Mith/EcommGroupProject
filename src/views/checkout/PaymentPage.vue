@@ -6,6 +6,7 @@ import TotalComp from '@/components/checkoutComponents/totalComp.vue'
 
 import { usePaymentStore } from '@/stores/payment'
 import { useCartProductStore } from '@/stores/cartProduct'
+import { PaymentMethod } from '@/stores/payment'
 
 const paymentStore = usePaymentStore()
 const cartProductStore = useCartProductStore()
@@ -16,6 +17,9 @@ const showPopup = () => {
 
   popup?.classList.add('open-popup')
   paymentPage?.classList.add('paymentPage-blur')
+}
+const clearPaymentInfo =(): void => {
+  paymentStore.setPayment(PaymentMethod.none)
 }
 </script>
 <template>
@@ -139,7 +143,7 @@ const showPopup = () => {
           padright="15px"
         ></forwardBtnCart>
         <!-- backBtn -->
-        <backBtnCart class="btnText" btnText="Back" gap="8px" to="/checkout/orderInfo"></backBtnCart>
+        <backBtnCart @click="clearPaymentInfo" class="btnText" btnText="Back" gap="8px" to="/checkout/orderInfo"></backBtnCart>
       </div>
     </div>
   </div>
