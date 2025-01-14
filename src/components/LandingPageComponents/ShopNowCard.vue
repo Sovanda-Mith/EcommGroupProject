@@ -1,6 +1,6 @@
 <template>
   <div class="h-[500px] w-fit">
-    <img :src="img" :alt="title" class="h-[300px] w-[450px] rounded-t-lg" />
+    <img :src="img" :alt="title" class="h-[300px] w-[450px] rounded-t-lg flip-card" />
     <div class="flex flex-col items-center bg-[#606868] space-y-5 py-4 rounded-b-lg">
       <p class="text-white text-[32px] md:text-[24px]">{{ title }}</p>
       <p class="text-white text-[16px] md:text-[12px]">{{ description }}</p>
@@ -21,3 +21,18 @@ defineProps({
   },
 })
 </script>
+<style scoped>
+.flip-card {
+  transform-style: preserve-3d;
+  animation: flipAnimation 10s infinite;
+}
+@keyframes flipAnimation {
+  0%,
+  100% {
+    transform: rotateX(0deg);
+  }
+  50% {
+    transform: rotateX(240deg);
+  }
+}
+</style>

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { useAuthStore } from '@/stores/auth';
+import { useAuthStore } from '@/stores/auth'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
+  routes: [
     //===============================================>> Auth
     // {
     //   path: '/', redirect: '/auth/login' // Default route redirects to login
@@ -44,7 +44,8 @@ const router = createRouter({
     {
       path: '/search',
       name: 'SearchResults',
-      component: () => import('../components/ProductCatalogComponent/SearchResults.vue') },
+      component: () => import('../components/ProductCatalogComponent/SearchResults.vue'),
+    },
 
     {
       path: '/category',
@@ -67,22 +68,20 @@ const router = createRouter({
           component: () => import('../views/category/MonitorPage.vue'),
         },
         {
-          path:'Audio',
-          name:'AudioPage',
-          component:()=>import('../views/category/AudioPage.vue')
-
+          path: 'Audio',
+          name: 'AudioPage',
+          component: () => import('../views/category/AudioPage.vue'),
         },
         {
-          path:'Controller',
-          name:'ControllerPage',
+          path: 'Controller',
+          name: 'ControllerPage',
           component: () => import('../views/category/ControllerPage.vue'),
         },
         {
-          path:'Others',
-          name:'OthersPage',
+          path: 'Others',
+          name: 'OthersPage',
           component: () => import('../views/category/OtherPage.vue'),
-        }
-
+        },
       ],
       meta: { requiresAuth: true },
     },
@@ -115,19 +114,43 @@ const router = createRouter({
       ],
       meta: { requiresAuth: true },
     },
-
+    {
+      path: '/orders',
+      name: 'OrdersPage',
+      component: () => import('../views/OrdersPage.vue'),
+    },
+    {
+      path: '/wishlist',
+      name: 'WishListPage',
+      component: () => import('../views/WishListPage.vue'),
+    },
+    {
+      path: '/history',
+      name: 'BrowsingHistoryPage',
+      component: () => import('../views/BrowsingHistoryPage.vue'),
+    },
+    {
+      path: '/seller-register',
+      name: 'SellerRegisterPage',
+      component: () => import('../views/BrowsingHistoryPage.vue'),
+    },
+    {
+      path: '/customer-service',
+      name: 'CustomerServicePage',
+      component: () => import('../views/CustomerServicePage.vue'),
+    },
   ],
-});
+})
 
 // Add navigation guard
 router.beforeEach((to, from, next) => {
-  const authStore = useAuthStore();
+  const authStore = useAuthStore()
 
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
-    next('/auth/login'); // Redirect to login if not authenticated
+    next('/auth/login') // Redirect to login if not authenticated
   } else {
-    next(); // Allow navigation
+    next() // Allow navigation
   }
-});
+})
 
-export default router;
+export default router
