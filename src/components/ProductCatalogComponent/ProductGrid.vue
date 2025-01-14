@@ -4,7 +4,6 @@
     <div
       v-for="product in products"
       :key="product.productId"
-      @click="goToProductDetail(product.productId)"
       class="bg-white p-4 border rounded-[20px] shadow-sm productGrid">
       <div v-if="product.discount" class="flag-discount">
         -{{ product.discount }}%
@@ -13,6 +12,7 @@
         :src="product.image"
         :alt="product.name"
         class="my-4 w-full h-40 object-contain"
+        @click="goToProductDetail(product.productId)"
       />
       <h3 class="font-semibold text-base h-[50px]">{{ product.name }}</h3>
       <p class="text-yellow-500 text-sm">

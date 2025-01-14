@@ -57,10 +57,10 @@
                   </span>
                 </div>
               </div>
-              <form>
+              <form @submit.prevent>
                 <!-- Quantity and Add to Cart -->
                 <div class="flex  flex-col mt-3 gap-2">
-                  <h4 class="text-[25px] mb-3"> Quantity </h4>
+                  <h4 class="text-[25px]"> Quantity </h4>
 
                   <div class="w-[166.36px] h-[55px] rounded-[70px] flex justify-between items-center border-black border-[1px] pl-[10px] pr-[10px]">
                     <button @click="decreaseQuantity()" class="border-white">
@@ -290,5 +290,37 @@ textarea {
 .share .social-icons .social-icon {
   width: 30px;
   height: 30px;
+}
+.flag-discount {
+    border-radius: 10px 0 0 10px;
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    float: left;
+    padding: 10px 20px;
+    background: #D84040;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+}
+.flag-discount::before,
+.flag-discount::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    display: block;
+}
+.flag-discount::before {
+    top: 0;
+    border-width: 22px 15px 0 0;
+    border-color: #D84040 transparent transparent transparent;
+}
+.flag-discount::after {
+    bottom: 0;
+    border-width: 0 15px 22px 0;
+    border-color: transparent transparent #D84040 transparent;
 }
 </style>
