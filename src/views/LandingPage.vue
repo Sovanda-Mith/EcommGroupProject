@@ -80,11 +80,13 @@
           src="../assets/landPageImg/applebrand.jpg"
           alt="Apple Brand"
           class="col-span-2 w-full h-[500px] rounded-md"
+          @click="search('Apple')"
         />
         <img
           src="../assets/landPageImg/logitechbrand.jpg"
           alt="Logitech Brand"
           class="w-full h-[500px] rounded-md"
+          @click="search('Logitech')"
         />
       </div>
       <div class="grid grid-cols-2 gap-x-3">
@@ -92,11 +94,13 @@
           src="../assets/landPageImg/samsungbrand.jpg"
           alt="Samsung Brand"
           class="w-full h-[500px] rounded-md"
+          @click="search('Samsung')"
         />
         <img
           src="../assets/landPageImg/sonybrand.jpg"
           alt="Sony Brand"
           class="w-full h-[500px] rounded-md"
+          @click="search('Sony')"
         />
       </div>
     </div>
@@ -112,11 +116,17 @@ import FeaturedProducts from '@/components/LandingPageComponents/FeaturedProduct
 import NavBar from '@/components/LandingPageComponents/NavBar.vue'
 import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue'
 import ShopNowCard from '@/components/LandingPageComponents/ShopNowCard.vue'
-
 import Footer from '@/components/LandingPageComponents/FooterBar.vue'
 import { ref } from 'vue'
+import { useRouter, type LocationQuery, type LocationQueryValueRaw } from 'vue-router'
 const togglePanel = ref(false)
 const handlePanelChange = () => {
   togglePanel.value = !togglePanel.value
+}
+
+const router = useRouter()
+
+const search = (productQuery: LocationQueryValueRaw) => {
+  router.push({ name: 'SearchResults', query: { q: productQuery } })
 }
 </script>
