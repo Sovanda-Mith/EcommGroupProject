@@ -30,6 +30,9 @@
         Next
       </button>
     </div>
+    <div class="mt-4 text-center">
+      Page {{ currentPage }} of {{ totalPages }}
+    </div>
   </main>
 </template>
 
@@ -239,7 +242,7 @@ const ProductStore = useProductStore();
 const mouseProduct = ProductStore.getProductByCategory('Mouse');
 
 const currentPage = ref(1);
-const itemsPerPage = 5;
+const itemsPerPage = 8;
 
 const totalPages = computed(() => Math.ceil(mouseProduct.length / itemsPerPage));
 

@@ -68,7 +68,7 @@
       </router-link>
     </nav>
     <div class="flex h-[80px] items-center justify-end w-full px-4">
-      <div class="search-box flex items-center w-[30%] pr-10">
+      <div class="search-box flex items-center pr-10">
         <input
           type="text"
           v-model="searchQuery"
