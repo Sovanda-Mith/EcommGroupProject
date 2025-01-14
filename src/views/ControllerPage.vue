@@ -58,6 +58,7 @@ interface Product {
   name: string;
   tag: string;
   image: string;
+  type: string;
   reviews: number;
   price: number;
 }
@@ -67,7 +68,8 @@ const products: Product[] = [
     id: 1,
     name: "PS2 Controller",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Controller/ps2.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/ps2.jpg",
     reviews: 230,
     price: 30
   },
@@ -75,7 +77,8 @@ const products: Product[] = [
     id: 2,
     name: "DualSense Fortnite Edition",
     tag: " ",
-    image: "src/assets/landPage2Img/Controller/DualSenseFortniteEdition.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/DualSenseFortniteEdition.jpg",
     reviews: 523,
     price: 75
   },
@@ -83,7 +86,8 @@ const products: Product[] = [
     id: 3,
     name: "Sony DualSense - Blue",
     tag: "",
-    image: "src/assets/landPage2Img/Controller/SonyDualSense-Blue.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/SonyDualSense-Blue.jpg",
     reviews: 401,
     price: 75
   },
@@ -91,7 +95,8 @@ const products: Product[] = [
     id: 4,
     name: "Sony PS5 DualSense",
     tag: "BEST DEALS",
-    image: "src/assets/landPage2Img/Controller/SonyPS5DualSense.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/SonyPS5DualSense.jpg",
     reviews: 1006,
     price: 63
   },
@@ -99,7 +104,8 @@ const products: Product[] = [
     id: 5,
     name: "Razer Wolverine V2",
     tag: "",
-    image: "src/assets/landPage2Img/Controller/RazerWolverineV2.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/RazerWolverineV2.jpg",
     reviews: 1761,
     price: 45
   },
@@ -107,7 +113,8 @@ const products: Product[] = [
     id: 6,
     name: "PDP Xbox REMATCH GLOW",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Controller/PDPXboxREMATCHGLOW.jpg",
+    type: "controller",
+    image: "/public/assets/landPage2Img/Controller/PDPXboxREMATCHGLOW.jpg",
     reviews: 9021,
     price: 30
   },

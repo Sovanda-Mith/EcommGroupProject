@@ -57,6 +57,7 @@ interface Product {
   id: number;
   name: string;
   tag: string;
+  type: string;
   image: string;
   reviews: number;
   price: number;
@@ -67,7 +68,8 @@ const products: Product[] = [
     id: 1,
     name: "AULA F99 Wireless Mechanical Keyboard",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Keyboard/AULAF99.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/AULAF99.jpg",
     reviews: 120,
     price: 83
   },
@@ -75,7 +77,8 @@ const products: Product[] = [
     id: 2,
     name: "ASUS ROG Azoth",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Keyboard/ASUSROGAzoth.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/ASUSROGAzoth.jpg",
     reviews: 523,
     price: 210
   },
@@ -83,7 +86,8 @@ const products: Product[] = [
     id: 3,
     name: "EPOMAKER x Aula F75",
     tag: "",
-    image: "src/assets/landPage2Img/Keyboard/EPOMAKERxAulaF75.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/EPOMAKERxAulaF75.jpg",
     reviews: 501,
     price: 71
   },
@@ -91,7 +95,8 @@ const products: Product[] = [
     id: 4,
     name: "nuphy Halo75 V2",
     tag: "BEST DEALS",
-    image: "src/assets/landPage2Img/Keyboard/nuphyHalo75-V2.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/nuphyHalo75-V2.jpg",
     reviews: 1000,
     price: 150
   },
@@ -99,7 +104,8 @@ const products: Product[] = [
     id: 5,
     name: "Keychron V3 Max",
     tag: "",
-    image: "src/assets/landPage2Img/Keyboard/KeychronV3Max.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/KeychronV3Max.jpg",
     reviews: 761,
     price: 109
   },
@@ -107,7 +113,8 @@ const products: Product[] = [
     id: 6,
     name: "KEMOVE K87 Wireless",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Keyboard/KEMOVEK87Wireless.jpg",
+    type: "keyboard",
+    image: "/public/assets/landPage2Img/Keyboard/KEMOVEK87Wireless.jpg",
     reviews: 91,
     price: 49
   },

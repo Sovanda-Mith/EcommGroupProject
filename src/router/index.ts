@@ -4,9 +4,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     //===============================================>> Auth
-    // { 
+    // {
     //   path: '/', redirect: '/auth/login' // Default route redirects to login
-    // }, 
+    // },
     {
       path: '/auth/login',
       name: 'login',
@@ -30,10 +30,10 @@ const router = createRouter({
       component: () => import('../views/LandingPage.vue'),
     },
     {
-      path: '/keyboard',
-      name: 'KeyboardPage',
+       path: '/keyboard',
+       name: 'KeyboardPage',
       component: () => import('../views/KeyboardPage.vue'),
-    },
+     },
     {
       path: '/mouse',
       name: 'MousePage',
@@ -64,6 +64,34 @@ const router = createRouter({
       name: 'CheckoutPage',
       component: () => import('../views/checkOutPage.vue'),
     },
+    {
+      path: '/audio/:id',
+      name: 'AudioDetailPage',
+      component: () => import('../views/ProductDetailView/AudioDetailPage.vue'),
+    },
+    {
+      path: '/mouse/:id',
+      name: 'MouseDetail',
+      component: () =>
+        import('../views/ProductDetailView/MouseDetail.vue'),
+    },
+    {
+      path: '/keyboard/:id',
+      name: 'KeyboardDetail',
+      component: () =>
+        import('../views/ProductDetailView/KeyboardDetail.vue'),
+    },
+    {
+      path: '/monitor/:id',
+      name: 'MonitorDetail',
+      component: () => import('../views/ProductDetailView/MonitorDetail.vue'),
+    },
+     {
+       path: '/controller/:id',
+       name: 'ControllerDetail',
+        component: () =>
+         import('../views/ProductDetailView/ControllerDetail.vue'),
+     },
   ],
 });
 

@@ -57,6 +57,7 @@ interface Product {
   id: number;
   name: string;
   tag: string;
+  type: string;
   image: string;
   reviews: number;
   price: number;
@@ -67,7 +68,8 @@ const products: Product[] = [
     id: 1,
     name: "Amazon Basics 24 Inch",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Monitor/AmazonBasics24Inch.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/AmazonBasics24Inch.jpg",
     reviews: 420,
     price: 129.99
   },
@@ -75,7 +77,8 @@ const products: Product[] = [
     id: 2,
     name: "SANSUI 24 Inch Monitor",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Monitor/SANSUI24InchMonitor.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/SANSUI24InchMonitor.jpg",
     reviews: 423,
     price: 179.99
   },
@@ -83,7 +86,8 @@ const products: Product[] = [
     id: 3,
     name: "KOORUI 24-inch Computer Monitor",
     tag: "",
-    image: "src/assets/landPage2Img/Monitor/KOORUI24-inchComputerMonitor.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/KOORUI24-inchComputerMonitor.jpg",
     reviews: 501,
     price: 84.99
   },
@@ -91,7 +95,8 @@ const products: Product[] = [
     id: 4,
     name: "DELL 24inch PRO P2419H IPS",
     tag: "BEST DEALS",
-    image: "src/assets/landPage2Img/Monitor/DELL24inchPROP2419HIPS.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/DELL24inchPROP2419HIPS.jpg",
     reviews: 800,
     price: 99.99
   },
@@ -99,7 +104,8 @@ const products: Product[] = [
     id: 5,
     name: "24 Inch Gaming Monitor",
     tag: "",
-    image: "src/assets/landPage2Img/Monitor/24InchGamingMonitor.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/24InchGamingMonitor.jpg",
     reviews: 761,
     price: 89.99
   },
@@ -107,7 +113,8 @@ const products: Product[] = [
     id: 6,
     name: "KTC 24 Gaming Monitor",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Monitor/KTC24GamingMonitor.jpg",
+    type: "monitor",
+    image: "/public/assets/landPage2Img/Monitor/KTC24GamingMonitor.jpg",
     reviews: 91,
     price: 49
   },

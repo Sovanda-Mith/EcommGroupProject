@@ -57,6 +57,7 @@ interface Product {
   id: number;
   name: string;
   tag: string;
+  type: string;
   image: string;
   reviews: number;
   price: number;
@@ -67,7 +68,8 @@ const products: Product[] = [
     id: 1,
     name: "Soundcore Anker Life Q20 Hybrid",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Audio/SoundcoreAnker.jpg",
+    type: "audio",
+    image: "/public/assets/landPage2Img/Audio/SoundcoreAnker.jpg",
     reviews: 520,
     price: 50
   },
@@ -75,7 +77,8 @@ const products: Product[] = [
     id: 2,
     name: "MOVSSOU E7",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Audio/MOVSSOUE7.jpg",
+    type: "audio",
+    image: "/public/assets/landPage2Img/Audio/MOVSSOUE7.jpg",
     reviews: 123,
     price: 46.99
   },
@@ -83,7 +86,8 @@ const products: Product[] = [
     id: 3,
     name: "SteelSeries Arctis Nova 7P",
     tag: "",
-    image: "src/assets/landPage2Img/Audio/SteelSeriesArctisNova7P.jpg",
+    type: "audio",
+    image: "/public/assets/landPage2Img/Audio/SteelSeriesArctisNova7P.jpg",
     reviews: 401,
     price: 149.99
   },
@@ -91,23 +95,18 @@ const products: Product[] = [
     id: 4,
     name: "Turtle Beach Recon 70",
     tag: "BEST DEALS",
-    image: "src/assets/landPage2Img/Audio/TurtleBeachRecon70.jpg",
+    type: "audio",
+    image: "/public/assets/landPage2Img/Audio/TurtleBeachRecon70.jpg",
     reviews: 100,
     price: 39.99
   },
-  {
-    id: 5,
-    name: "ASUS ROG Delta II Wireless",
-    tag: "",
-    image: "src/assets/landPage2Img/Audio/ASUSROGDeltaII.jpg",
-    reviews: 761,
-    price: 229.99
-  },
+
   {
     id: 6,
     name: "Alienware Pro Wireless",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Audio/AlienwareProWireless.jpg",
+    type: "audio",
+    image: "/public/assets/landPage2Img/Audio/AlienwareProWireless.jpg",
     reviews: 91,
     price: 229.99
   },

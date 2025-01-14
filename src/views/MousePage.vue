@@ -57,6 +57,7 @@ interface Product {
   id: number;
   name: string;
   tag: string;
+  type: string;
   image: string;
   reviews: number;
   price: number;
@@ -67,7 +68,8 @@ const products: Product[] = [
     id: 1,
     name: "INPHIC Bluetooth Mouse",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Mouse/INPHICBluetoothMouse.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/INPHICBluetoothMouse.jpg",
     reviews: 10,
     price: 19.99
   },
@@ -75,7 +77,8 @@ const products: Product[] = [
     id: 2,
     name: "Bluetooth Wireless Mouse",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Mouse/BluetoothWirelessMouse.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/BluetoothWirelessMouse.jpg",
     reviews: 123,
     price: 16.99
   },
@@ -83,7 +86,8 @@ const products: Product[] = [
     id: 3,
     name: "Lenovo Bluetooth Silent Mouse",
     tag: "",
-    image: "src/assets/landPage2Img/Mouse/LenovoBluetoothSilentMouse.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/LenovoBluetoothSilentMouse.jpg",
     reviews: 501,
     price: 19.99
   },
@@ -91,7 +95,8 @@ const products: Product[] = [
     id: 4,
     name: "USB Mouse Wireless",
     tag: "BEST DEALS",
-    image: "src/assets/landPage2Img/Mouse/USBMouseWireless.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/USBMouseWireless.jpg",
     reviews: 100,
     price: 9.49
   },
@@ -99,7 +104,8 @@ const products: Product[] = [
     id: 5,
     name: "Razer Basilisk V3",
     tag: "",
-    image: "src/assets/landPage2Img/Mouse/RazerBasiliskV3.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/RazerBasiliskV3.jpg",
     reviews: 361,
     price: 39.99
   },
@@ -107,7 +113,8 @@ const products: Product[] = [
     id: 6,
     name: "ASUS ROG Chakram",
     tag: "HOT",
-    image: "src/assets/landPage2Img/Mouse/ASUSROGChakram.jpg",
+    type: "mouse",
+    image: "/public/assets/landPage2Img/Mouse/ASUSROGChakram.jpg",
     reviews: 91,
     price: 49
   },

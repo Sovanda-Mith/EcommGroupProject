@@ -1,184 +1,150 @@
 <script setup lang="ts">
-import PromotionBar from '@/components/LandingPageComponents/PromotionBar.vue';
-import headerCart from '../components/checkoutComponents/headerCart.vue';
-import NavBar from '@/components/LandingPageComponents/NavBar.vue';
-import backBtnCart from '@/components/checkoutComponents/backBtnCart.vue';
-import forwardBtnCart from '@/components/checkoutComponents/forwardBtnCart.vue';
-import TotalComp from '@/components/checkoutComponents/totalComp.vue';
-import dropdownComp from '@/components/checkoutComponents/dropdownComp.vue';
-import { ref } from 'vue';
+import productIncart from '@/components/checkoutComponents/productIncart.vue'
+import backBtnCart from '@/components/checkoutComponents/backBtnCart.vue'
+import forwardBtnCart from '@/components/checkoutComponents/forwardBtnCart.vue'
+import headerCart from '@/components/checkoutComponents/headerCart.vue'
 
+import '@/assets/main.css'
+import TotalComp from '@/components/checkoutComponents/totalComp.vue'
 
-const selectedCountry = ref('');
-
-const handleSelection = (country: string) => {
-  selectedCountry.value = country;
-};
-
-
+import { useCartProductStore } from '@/stores/cartProduct'
+const cartProductStore = useCartProductStore()
 </script>
 <template>
-  <PromotionBar/>
-  <NavBar/>
-  <div class="w-100% h-[1024px] bg-[#A1A1A1] flex flex-col justify-center items-center">
-    <div class="relative cartContainer w-[1292.2px] h-[880px] rounded-[50px] bg-white">
-      <headerCart title="Checking Out"/>
-      <div class="breadcrumb">
-        <span>Cart</span>
-        <span class="separator">></span>
-        <span class="active">Shipping Information</span>
-        <span class="separator">></span>
-        <span class="inactive">Payments (via Card)</span>
-      </div>
-
-      <div class="flex p-[20px] h-[calc(100%-140px)] rounded-b-[50px]" style="font-family: 'SF-Pro', sans-serif; font-weight: 300;">
-        <!-- form payment -->
-        <div class="w-[calc(100%-483px)] h-100%">
-          <form>
-            <div class="mb-3">
-              <label for="formCountryInput" class="form-label">Country / Region </label>
-              <!-- dropdown -->
-              <div id="dropdownContainer">
-                <dropdownComp width="100%" @update:selected="handleSelection"/>
-              </div>
-            </div>
-            <!-- name -->
-            <div class="mb-3">
-              <div class="row">
-                <div class="col">
-                  <div class="form-label">First Name</div>
-                  <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                </div>
-                <div class="col">
-                  <div class="form-label">Last Name</div>
-                  <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </div>
-              </div>
-            </div>
-            <!-- address -->
-            <div class="mb-3">
-              <label for="formAddressInput" class="form-label">Address</label>
-              <input type="text" class="form-control" id="formAddressInput" placeholder="3700 Noxus">
-            </div>
-            <!-- city&postal -->
-            <div class="mb-3">
-              <div class="row">
-                <div class="col">
-                  <div class="form-label">City</div>
-                  <input type="text" class="form-control" placeholder="Hidden Leaf">
-                </div>
-                <div class="col">
-                  <div class="form-label">Postal Code</div>
-                  <input type="text" class="form-control" placeholder="01680">
-                </div>
-              </div>
-            </div>
-            <!-- email -->
-            <div class="mb-3">
-              <label for="formEmailInput" class="form-label">Email Address</label>
-              <input type="text" class="form-control" id="formEmailInput" placeholder="Yasuo@example.com">
-            </div>
-            <!-- phone number -->
-            <div class="mb-3">
-              <label for="formPhoneInput" class="form-label">Phone Number</label>
-              <input type="text" class="form-control" id="formPhoneInput" placeholder="+855 (168) 000-0000">
-            </div>
-            <!-- check box -->
-            <div class="mb-3 ml-10 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-              <label class="form-check-label" for="exampleCheck1" style="font-family: 'SF-Pro', sans-serif;">You agree to our friendly privacy policy</label>
-            </div>
-
-          </form>
-        </div>
-
-        <div class=" w-[483px] h-100% flex flex-col justify-center pl-[40px] gap-[30px] ">
-          <!-- coupon -->
-          <form class="flex items-center">
-
-            <div class="flex flex-col">
-              <label for="exampleInputEmail1" class="form-label paymentText">Have any Discount code or Coupon</label>
-              <div class="flex items-center justify-center gap-3">
-                <input placeholder="COUPON" style="font-family: 'SF-Pro', sans-serif;" type="email" class="form-control text-[24px] w-[300px] h-[70px]" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <button type="submit" class=" mb-[10px] bg-white text-black border-black border-[1px] rounded-[10px] w-[90px] h-[70px] mt-[20px]">Apply</button>
-              </div>
-
-            </div>
-          </form>
-
-          <!-- paymentMethod -->
-          <div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                <div class="flex flex-col gap-2 pb-2">
-                  <p class="paymentText">Pay by Credit Card / QR code</p>
-                  <div class="flex gap-3 items-center">
-                    <img src="../assets/cartImg/MasterCard_Logo_svg.png" class="w-[40px] h-[25px]" alt="">
-                    <img src="../assets/cartImg/Visa_2021.svg.png" class="w-[5 0px] h-[20px]" alt="">
-                    <img src="../assets/cartImg/bakong.png" class="w-[35px] h-[35px]" alt="">
-                  </div>
-                </div>
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                <p class="paymentText">Cash on delivery</p>
-              </label>
-            </div>
-          </div>
-          <TotalComp subTotal="$ 1,999" shipping="$ 99" total="$ 2,099"/>
-          <div class="flex flex-col gap-[20px] justify-center items-center">
-            <!-- forwardBtn -->
-            <forwardBtnCart class="btnText" to="/checkout" btnText="Continue to Payment" width="350px" height="70px" gap="15px" padleft="15px" padright="15px"></forwardBtnCart>
-            <!-- backBtn -->
-            <backBtnCart class="btnText" btnText="Back To Cart" gap="8px" to="/CartPage"></backBtnCart>
-          </div>
-
-
-        </div>
-      </div>
-
+  <headerCart title="Your Shopping Cart"></headerCart>
+  <div class="w-100% flex gap-[204px] justify-center mt-[25px] pb-[20px]">
+    <div class="cartTitle flex gap-1">
+      Product Name
+      <svg
+        class="w-6 h-6 text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="black"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M14 7h-4v3a1 1 0 0 1-2 0V7H6a1 1 0 0 0-.997.923l-.917 11.924A2 2 0 0 0 6.08 22h11.84a2 2 0 0 0 1.994-2.153l-.917-11.924A1 1 0 0 0 18 7h-2v3a1 1 0 1 1-2 0V7Zm-2-3a2 2 0 0 0-2 2v1H8V6a4 4 0 0 1 8 0v1h-2V6a2 2 0 0 0-2-2Z"
+          clip-rule="evenodd"
+        />
+      </svg>
     </div>
+    <div class="cartTitle">Quantity</div>
+    <div class="cartTitle flex gap-1">
+      Discount
+      <svg
+        class="w-6 h-6 text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="white"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="black"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8.891 15.107 15.11 8.89m-5.183-.52h.01m3.089 7.254h.01M14.08 3.902a2.849 2.849 0 0 0 2.176.902 2.845 2.845 0 0 1 2.94 2.94 2.849 2.849 0 0 0 .901 2.176 2.847 2.847 0 0 1 0 4.16 2.848 2.848 0 0 0-.901 2.175 2.843 2.843 0 0 1-2.94 2.94 2.848 2.848 0 0 0-2.176.902 2.847 2.847 0 0 1-4.16 0 2.85 2.85 0 0 0-2.176-.902 2.845 2.845 0 0 1-2.94-2.94 2.848 2.848 0 0 0-.901-2.176 2.848 2.848 0 0 1 0-4.16 2.849 2.849 0 0 0 .901-2.176 2.845 2.845 0 0 1 2.941-2.94 2.849 2.849 0 0 0 2.176-.901 2.847 2.847 0 0 1 4.159 0Z"
+        />
+      </svg>
+    </div>
+    <div class="cartTitle flex gap-1">
+      Subtotal<svg
+        class="w-5 h-5 text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="black"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M8 17.345a4.76 4.76 0 0 0 2.558 1.618c2.274.589 4.512-.446 4.999-2.31.487-1.866-1.273-3.9-3.546-4.49-2.273-.59-4.034-2.623-3.547-4.488.486-1.865 2.724-2.899 4.998-2.31.982.236 1.87.793 2.538 1.592m-3.879 12.171V21m0-18v2.2"
+        />
+      </svg>
+    </div>
+  </div>
 
+  <!-- itemList -->
+  <div
+    class="w-100% max-h-[421px] flex flex-col items-center justify-start overflow-y-scroll scroll-p-2"
+  >
+
+    <productIncart
+      v-for="productCart in cartProductStore.allCartProducts"
+      :key="productCart.product.productId"
+      :img="productCart.product.image"
+      :productName="productCart.product.name"
+      :discount="productCart.product.discount"
+      :beforeDiscount="cartProductStore.eachProductBeforeDiscount(productCart.product.productId)"
+      :finalPrice="cartProductStore.eachProductTotalValue(productCart.product.productId)"
+      :quantity="productCart.quantity"
+      :product="productCart.product"
+    ></productIncart>
+  </div>
+
+  <!-- backBtn -->
+  <backBtnCart
+    class="absolute bottom-[30px] left-[30px]"
+    btnText="Back To Shopping"
+    gap="8px"
+    to="/"
+  ></backBtnCart>
+
+  <!-- total&forward -->
+  <div
+    class="absolute right-[78px] bottom-[15px] mt-[23px] w-[500px] h-[220px] flex flex-col items-center"
+  >
+    <TotalComp
+      :subTotal="cartProductStore.subtotalCartValue"
+      :shipping="cartProductStore.getShippingCost"
+      :total="cartProductStore.getTotalCost"
+    />
+    <div class="flex flex-col items-center">
+      <forwardBtnCart
+        to="/checkout/orderInfo"
+        btnText="Secure Check Out"
+        width="280px"
+        height="50px"
+        gap="15px"
+        padleft="15px"
+        padright="15px"
+      ></forwardBtnCart>
+      <p class="text-[12px] mt-1">By clicking "Purchase", you accept the terms.</p>
+    </div>
   </div>
 </template>
-<style>
+<style scoped>
+/* font import */
 
-.breadcrumb {
+/* Import the font using @import */
+/* Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Kdam Thmor Pro */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Kdam+Thmor+Pro&display=swap');
+
+.cartTitle {
   font-family: 'SF-Pro', sans-serif;
-  font-size: 22px;
-  color: #888;
-  margin-top: 10px;
-  margin-left:20px;
-}
-
-.breadcrumb .separator {
-  margin: 0 8px; /* Add spacing around the ">" symbol */
-  color: #444; /* Slightly darker color */
-}
-
-.breadcrumb .active {
-  font-weight: bold;
-  color: black; /* Highlight the current page */
-}
-
-.breadcrumb .inactive {
-  color: #ccc; /* Gray color for future steps */
-}
-.paymentText{
-  font-family: 'SF-Pro', sans-serif;
-  font-weight: 300;
+  font-weight: 500;
   font-size: 24px;
 }
-.btnText{
-  font-size: 24px;
-}
-.SFfont{
-  font-family: 'SF-Pro', sans-serif;
-}
 
-/* dropdown */
 
 </style>
+
+<script lang="ts">
+export default {
+  name: 'App',
+  components: {
+    headerCart,
+  },
+}
+</script>
