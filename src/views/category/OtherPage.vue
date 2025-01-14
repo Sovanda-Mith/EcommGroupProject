@@ -30,6 +30,9 @@
         Next
       </button>
     </div>
+    <div class="mt-4 text-center">
+      Page {{ currentPage }} of {{ totalPages }}
+    </div>
   </main>
 </template>
 

@@ -1,12 +1,24 @@
 <template>
   <footer class="bg-[#606868] px-5 py-5 text-white grid grid-cols-3">
-    <div class="space-y-2 text-[18px]">
-      <p>Your Account</p>
-      <p>Your Orders</p>
-      <p>Your lists</p>
-      <p>Browsing History</p>
-      <p>Sell product on IPB3</p>
-      <p>Customer Service</p>
+    <div class="text-[18px]">
+      <router-link to="/auth/profile">
+        <p class="hover:underline">Your Account</p>
+      </router-link>
+      <router-link to="/orders">
+        <p class="hover:underline">Your Orders</p>
+      </router-link>
+      <router-link to="/wishlist">
+        <p class="hover:underline">Your lists</p>
+      </router-link>
+      <router-link to="/history">
+        <p class="hover:underline">Browsing History</p>
+      </router-link>
+      <router-link to="/seller-register">
+        <p class="hover:underline">Sell product on IPB3</p>
+      </router-link>
+      <router-link to="/customer-service">
+        <p class="hover:underline">Customer Service</p>
+      </router-link>
     </div>
     <div class="flex flex-col justify-center space-y-4 col-span-2 items-center">
       <h1 class="text-[24px]">Keep Up To Date with Best Selling Products</h1>

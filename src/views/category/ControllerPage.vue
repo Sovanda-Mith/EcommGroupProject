@@ -30,6 +30,9 @@
         Next
       </button>
     </div>
+    <div class="mt-4 text-center">
+      Page {{ currentPage }} of {{ totalPages }}
+    </div>
   </main>
 </template>
 
@@ -51,7 +54,7 @@ const controllerProduct=ProductStore.getProductByCategory('Controller');
 
 
 const currentPage = ref(1);
-const itemsPerPage = 5;
+const itemsPerPage = 8;
 
 const totalPages = computed(() => Math.ceil(controllerProduct.length / itemsPerPage));
 
