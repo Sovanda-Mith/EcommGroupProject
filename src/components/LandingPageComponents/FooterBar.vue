@@ -13,11 +13,8 @@
       <router-link to="/history">
         <p class="hover:underline">Browsing History</p>
       </router-link>
-      <router-link to="/seller-register">
+      <router-link to="/seller-requirement">
         <p class="hover:underline">Sell product on IPB3</p>
-      </router-link>
-      <router-link to="/customer-service">
-        <p class="hover:underline">Customer Service</p>
       </router-link>
     </div>
     <div class="flex flex-col justify-center space-y-4 col-span-2 items-center">
