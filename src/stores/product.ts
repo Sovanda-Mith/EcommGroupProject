@@ -54,6 +54,8 @@ export const useProductStore = defineStore('product', {
     getBudgetProduct: (state) => () => {
       return state.products.filter(p => p.price < 100);
     },
-
+    getHotProduct: (state) => () => {
+      return state.products.filter(p => p.tag === 'HOT');
+    },
   }
 })

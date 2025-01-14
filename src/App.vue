@@ -482,7 +482,7 @@ const allProducts = [
     description: "Affordable wireless mouse with USB connectivity.",
     image: imageMouse37,
     discount: 20,
-    tag: "BEST DEALS",
+    tag: "HOT",
     reviewsNum: 100,
   },
   {

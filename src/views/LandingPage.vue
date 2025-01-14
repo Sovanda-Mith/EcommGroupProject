@@ -68,7 +68,7 @@
         img="../../src/assets/landPageImg/streamdeck.avif"
         title="Hottest Sell!!!"
         description="A must have product for every streamer"
-        to="/category/streamdeck"
+        to="/category/Hot"
       />
     </div>
 
