@@ -1,5 +1,3 @@
 ## Ecomm Group Project
 
-## To do list
-
-- [x] Create Landing Page
+## To see the source code please pull from branch "main"
